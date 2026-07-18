@@ -1,0 +1,55 @@
+# Sylvia Agent Skills
+
+Sylvia 的个人 Agent Skills 仓库。仓库遵循 [Agent Skills 开放规范](https://agentskills.io/specification)，每个 skill 都是一个可独立安装、按需加载的目录。
+
+## Skills
+
+| Skill | 功能 |
+| --- | --- |
+| [`deep-reading-coach`](skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
+
+## 安装
+
+使用 GitHub CLI 安装到 Codex 的用户级 skill 目录：
+
+```bash
+gh skill install sylviachenxy/sylvia-agent-skills deep-reading-coach \
+  --agent codex \
+  --scope user
+```
+
+安装仓库中的全部 skills：
+
+```bash
+gh skill install sylviachenxy/sylvia-agent-skills --all \
+  --agent codex \
+  --scope user
+```
+
+## 仓库结构
+
+```text
+skills/
+└── <skill-name>/
+    ├── SKILL.md          # 必需：触发元数据与操作指令
+    ├── agents/          # 可选：产品界面元数据
+    ├── scripts/         # 可选：可执行脚本
+    ├── references/      # 可选：按需读取的参考资料
+    └── assets/          # 可选：模板与静态资源
+```
+
+每个目录名必须与其 `SKILL.md` 的 `name` 完全一致，并使用小写字母、数字和连字符。
+
+## 验证
+
+在仓库根目录运行：
+
+```bash
+gh skill publish --dry-run
+```
+
+该命令会发现 `skills/*/SKILL.md`，并依据 Agent Skills 规范检查名称、目录匹配和必需的 frontmatter 字段。
+
+## 许可
+
+见 [`LICENSE`](LICENSE)。本仓库目前保留全部权利，未授予开源许可。

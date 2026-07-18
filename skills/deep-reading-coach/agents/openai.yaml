@@ -1,0 +1,4 @@
+interface:
+  display_name: "精读能力培养教练"
+  short_description: "培养可迁移的精读能力、独立阅读流程与可持续阅读习惯"
+  default_prompt: "使用 $deep-reading-coach 根据我的书籍、时间和当前水平，陪我建立可持续的精读训练。"

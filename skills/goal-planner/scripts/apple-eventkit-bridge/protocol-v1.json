@@ -1,0 +1,160 @@
+{
+  "protocol_version": 1,
+  "managed_metadata_schema_version": 2,
+  "managed_marker": "[goal-planner:v2]",
+  "version_layers": {
+    "protocol_version": "JSON stdin/stdout transport and command contract",
+    "managed_metadata_schema_version": "native Calendar/Reminders projection metadata",
+    "obsidian_ledger_schema_version": "separate canonical Goal document schema, not interpreted by this bridge"
+  },
+  "transport": {
+    "command": "argv subcommand",
+    "input": "one JSON object on stdin",
+    "output": "one JSON object on stdout",
+    "diagnostics": "stderr",
+    "failure": "non-zero exit with ok=false and error.code",
+    "outer_watchdog": "all EventKit commands have a finite process watchdog; timeout_seconds sets the base where accepted, with a 10-second reconciliation margin",
+    "mutation_timeout": "operation_timeout_outcome_unknown means a write may have committed; find/get/list and reconcile before retry"
+  },
+  "commands": {
+    "doctor": { "input": null, "mutates_eventkit": false },
+    "status": { "input": null, "alias_of": "doctor", "mutates_eventkit": false },
+    "self-test": { "input": null, "mutates_eventkit": false },
+    "authorize": {
+      "required": ["entity"],
+      "optional": ["timeout_seconds"],
+      "entity": ["event", "reminder"],
+      "may_show_system_prompt": true
+    },
+    "sources list": {
+      "required": ["entity"],
+      "entity": ["event", "reminder"],
+      "mutates_eventkit": false
+    },
+    "containers list": {
+      "required": ["entity"],
+      "optional": ["source_id"],
+      "entity": ["event", "reminder"],
+      "mutates_eventkit": false
+    },
+    "containers create": {
+      "required": ["entity", "source_id", "title", "confirm_icloud_source"],
+      "optional": ["dry_run"],
+      "entity": ["event", "reminder"]
+    },
+    "availability": {
+      "required": ["start_at", "end_at", "calendar_ids"],
+      "returns": "occupied intervals only",
+      "mutates_eventkit": false
+    },
+    "items find": {
+      "required": ["entity", "source_id", "container_id", "projection_id"],
+      "optional": ["search_window", "timeout_seconds"],
+      "event_requires": ["search_window"],
+      "mutates_eventkit": false
+    },
+    "items get": {
+      "required": ["entity", "source_id", "container_id", "projection_id", "item_id"],
+      "mutates_eventkit": false
+    },
+    "items create": {
+      "required": ["entity", "source_id", "container_id", "managed", "payload"],
+      "optional": ["search_window", "timeout_seconds", "dry_run"],
+      "event_requires": ["search_window"]
+    },
+    "items patch": {
+      "required": ["entity", "source_id", "container_id", "projection_id", "item_id", "expected_fingerprint", "managed", "payload"],
+      "optional": ["search_window", "timeout_seconds", "dry_run"],
+      "event_requires": ["search_window"]
+    },
+    "reminders complete": {
+      "required": ["source_id", "container_id", "projection_id", "item_id", "expected_fingerprint"],
+      "optional": ["timeout_seconds", "dry_run"]
+    },
+    "items delete": {
+      "required": ["entity", "source_id", "container_id", "projection_id", "item_id", "expected_fingerprint"],
+      "optional": ["search_window", "timeout_seconds", "dry_run"],
+      "event_requires": ["search_window"]
+    }
+  },
+  "managed": {
+    "schema_version": 2,
+    "required": ["schema_version", "goal_id", "projection_id", "role", "goal_path", "obsidian_url"],
+    "optional": ["action_id"],
+    "reminder_roles": ["action", "check-in"],
+    "event_roles": ["work-block", "check-in", "deadline"]
+  },
+  "reminder_payload": {
+    "required": ["title", "due", "priority"],
+    "create_only_optional": ["user_notes"],
+    "due_kinds": ["none", "date", "date_time"],
+    "priority": [0, 1, 5, 9],
+    "recurrence": "unsupported",
+    "alarms": "unsupported"
+  },
+  "event_payload": {
+    "required": ["title", "location", "time", "alarms"],
+    "create_only_optional": ["user_notes"],
+    "time_kinds": ["timed", "all_day"],
+    "timed_fields": ["start_at", "end_at", "timezone"],
+    "all_day_fields": ["start_date", "end_date_exclusive"],
+    "all_day_semantics": "floating calendar-day boundaries in the Mac's current default time zone; arbitrary timezone is rejected",
+    "invitations": "unsupported for patch and delete",
+    "structured_location_change": "unsupported when Calendar holds coordinates or radius",
+    "alarms": "display-only relative minutes-before alarms; other alarm types or triggers are unsupported for patch",
+    "recurrence": "unsupported"
+  },
+  "verification_scope": "local_eventkit_readback",
+  "icloud_delivery_verified": false,
+  "optimistic_concurrency": "best-effort canonical fingerprint checked immediately before mutation plus a per-user process lock; EventKit does not provide atomic compare-and-swap",
+  "error_codes": [
+    "invalid_json",
+    "validation_error",
+    "unsupported_schema",
+    "permission_not_determined",
+    "permission_restricted",
+    "permission_denied",
+    "permission_write_only",
+    "permission_request_failed",
+    "permission_unavailable",
+    "unsupported_platform",
+    "bundle_identity_mismatch",
+    "source_missing",
+    "source_not_caldav",
+    "container_missing",
+    "container_ambiguous",
+    "container_exists",
+    "container_not_writable",
+    "container_source_mismatch",
+    "container_type_mismatch",
+    "projection_exists",
+    "projection_missing",
+    "projection_duplicate",
+    "projection_mismatch",
+    "item_moved",
+    "item_type_mismatch",
+    "marker_missing",
+    "marker_malformed",
+    "stale_object",
+    "identity_change_forbidden",
+    "unsupported_recurrence",
+    "unsupported_reminder_alarm",
+    "unsupported_event_alarm",
+    "unsupported_structured_location",
+    "unsupported_invitation",
+    "timeout",
+    "operation_timeout",
+    "operation_timeout_outcome_unknown",
+    "lock_timeout",
+    "lock_unavailable",
+    "confirmation_required",
+    "eventkit_error",
+    "eventkit_write_failed",
+    "write_unverified",
+    "readback_mismatch",
+    "unknown_command",
+    "internal_error",
+    "serialization_error",
+    "self_test_failed"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "entity": "event",
+  "source_id": "<confirmed-icloud-source-id>",
+  "container_id": "<confirmed-calendar-id>",
+  "managed": {
+    "schema_version": 2,
+    "goal_id": "G-2026-001",
+    "projection_id": "G-2026-001-E001",
+    "action_id": "G-2026-001-A001",
+    "role": "work-block",
+    "goal_path": "Goals/G-2026-001/G-2026-001.md",
+    "obsidian_url": "obsidian://open?vault=Example&file=Goals%2FG-2026-001%2FG-2026-001"
+  },
+  "payload": {
+    "title": "专注｜完成一次诊断",
+    "location": null,
+    "time": {
+      "kind": "timed",
+      "start_at": "2026-09-07T14:00:00+08:00",
+      "end_at": "2026-09-07T15:00:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "alarms": []
+  },
+  "search_window": {
+    "start_at": "2026-09-01T00:00:00+08:00",
+    "end_at": "2026-10-01T00:00:00+08:00"
+  },
+  "dry_run": true
+}

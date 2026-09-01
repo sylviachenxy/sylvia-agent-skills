@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDisplayName</key>
+    <string>Goal Planner EventKit Bridge</string>
+    <key>CFBundleExecutable</key>
+    <string>goal-planner-eventkit</string>
+    <key>CFBundleIdentifier</key>
+    <string>io.github.sylviachenxy.sylvia-agent-skills.goal-planner-eventkit</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>GoalPlannerEventKitBridge</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>GoalPlannerSignatureKind</key>
+    <string>adhoc</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>Goal Planner uses full Calendar access to inspect approved availability windows and create, verify, update, reconcile, or delete only the calendar projections you approve.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Goal Planner uses Calendar access to manage only the calendar projections you approve.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>Goal Planner uses full Reminders access to create, verify, update, complete, reconcile, or delete only the reminder projections you approve.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>Goal Planner uses Reminders access to manage only the reminder projections you approve.</string>
+</dict>
+</plist>

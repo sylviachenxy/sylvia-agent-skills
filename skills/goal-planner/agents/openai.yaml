@@ -1,0 +1,4 @@
+interface:
+  display_name: "目标规划教练"
+  short_description: "建立可信 SMART Goal，落地计划并持续校准"
+  default_prompt: "使用 $goal-planner 帮我把一个想法建立成可信的 SMART Goal，通过后写入 Obsidian，并把近期行动和时间安排投影到 Apple Reminders 与 Apple Calendar。"

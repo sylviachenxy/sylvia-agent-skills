@@ -1,0 +1,16 @@
+{
+  "operation_id": "OP-55555555-5555-4555-8555-555555555555",
+  "entity": "reminder",
+  "source_id": "CONFIRMED_SOURCE_ID",
+  "container_id": "CONFIRMED_LIST_ID",
+  "item_id": "FRESH_ITEM_ID",
+  "expected_fingerprint": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "confirm_private_container": true,
+  "managed": {
+    "schema_version": 1,
+    "schedule_id": "PS-66666666-6666-4666-8666-666666666666",
+    "entity": "reminder",
+    "role": "task"
+  },
+  "dry_run": true
+}

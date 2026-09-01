@@ -1,0 +1,29 @@
+{
+  "operation_id": "OP-33333333-3333-4333-8333-333333333333",
+  "entity": "event",
+  "source_id": "CONFIRMED_SOURCE_ID",
+  "container_id": "CONFIRMED_CALENDAR_ID",
+  "confirm_private_container": true,
+  "managed": {
+    "schema_version": 1,
+    "schedule_id": "PS-44444444-4444-4444-8444-444444444444",
+    "entity": "event",
+    "role": "time-block"
+  },
+  "payload": {
+    "title": "复习英语",
+    "location": null,
+    "time": {
+      "kind": "timed",
+      "start_at": "2026-09-08T19:00:00+08:00",
+      "end_at": "2026-09-08T20:00:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "alarms": []
+  },
+  "search_window": {
+    "start_at": "2026-09-08T00:00:00+08:00",
+    "end_at": "2026-09-09T00:00:00+08:00"
+  },
+  "dry_run": true
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "个人日程助手"
+  short_description: "用 Apple Calendar 与 Reminders 安排个人学习和生活"
+  default_prompt: "使用 $personal-scheduler 帮我查看明天的已有安排，并把两项待办放进合适的空闲时间。"

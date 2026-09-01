@@ -1,0 +1,133 @@
+{
+  "executor_version": "1.0.0",
+  "protocol_version": 1,
+  "managed_metadata_schema_version": 1,
+  "state_schema_version": 2,
+  "entrypoint": "./personal-scheduler.sh",
+  "managed_marker": "[personal-scheduler:v1]",
+  "identity": {
+    "schedule_id": "PS-<canonical-uppercase-UUID>",
+    "operation_id": "OP-<canonical-uppercase-UUID>",
+    "container_operation_id": "COP-<canonical-uppercase-UUID>"
+  },
+  "transport": {
+    "command": "argv subcommand",
+    "input": "one JSON object on stdin, maximum 1 MiB",
+    "output": "one JSON object on stdout",
+    "failure": "non-zero exit with ok=false and error.code",
+    "diagnostics": "stderr without request-body echo",
+    "verification_scope": "local_eventkit_readback",
+    "icloud_delivery_verified": false
+  },
+  "commands": {
+    "doctor": {"input": null, "eventkit_data_accessed": false, "mutates": false},
+    "status": {"alias_of": "doctor"},
+    "self-test": {"input": null, "eventkit_data_accessed": false, "production_state_accessed": false, "mutates": false},
+    "id new": {"required": ["kind"], "kind": ["schedule", "operation", "container_operation"], "mutates": false},
+    "settings get": {"input": {}, "mutates": false},
+    "settings set": {"required": ["expected_revision", "confirmed", "event_store_id", "timezone", "event", "reminder"], "mutates_eventkit": false},
+    "state get": {"input": {}, "mutates": false},
+    "operations list": {"input": {}, "mutates": false},
+    "operations reconcile": {"required": ["operation_id", "command", "original_request"], "allowed_phase": ["in_flight", "outcome_unknown"], "reads_eventkit": true, "mutates_eventkit": false},
+    "operations resolve": {"required": ["operation_id", "resolution", "confirmed"], "resolution": ["not_applied", "conflict", "abandon_unknown"], "prepared_only_resolution": "not_applied", "post_in_flight_not_applied": "operations reconcile only", "mutates_eventkit": false},
+    "authorize": {"required": ["entity", "confirmed"], "optional": ["timeout_seconds"], "may_show_system_prompt": true},
+    "sources list": {"required": ["entity"], "mutates": false},
+    "containers list": {"required": ["entity"], "optional": ["source_id"], "mutates": false},
+    "containers create": {"required": ["operation_id", "entity", "source_id", "title", "confirm_icloud_source", "dry_run"], "actual_requires": ["preview_hash"]},
+    "availability": {"required": ["start_at", "end_at", "calendar_ids"], "privacy": "occupied intervals only", "mutates": false},
+    "events list": {"required": ["start_at", "end_at", "calendar_ids", "detail"], "detail": ["busy", "summary"], "mutates": false},
+    "reminders list": {"required": ["list_ids"], "optional": ["due_window", "include_overdue", "include_undated", "include_completed", "timeout_seconds", "limit"], "mutates": false},
+    "items find": {"required": ["entity", "source_id", "container_id", "schedule_id"], "optional": ["timeout_seconds"], "event_requires": ["search_window"], "mutates": false},
+    "items get": {"required": ["entity", "source_id", "container_id", "item_id"], "optional": ["expected_schedule_id"], "mutates": false},
+    "items create": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "managed", "payload", "dry_run"], "optional": ["timeout_seconds"], "actual_requires": ["preview_hash"], "event_requires": ["search_window"]},
+    "items patch": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "schedule_id", "item_id", "expected_fingerprint", "managed", "payload", "dry_run"], "optional": ["timeout_seconds"], "actual_requires": ["preview_hash"], "event_requires": ["search_window"], "payload_semantics": "full target snapshot for all managed fields, not a partial patch"},
+    "reminders complete": {"required": ["operation_id", "source_id", "container_id", "confirm_private_container", "schedule_id", "item_id", "expected_fingerprint", "dry_run"], "optional": ["timeout_seconds"], "actual_requires": ["preview_hash"]},
+    "items delete": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "schedule_id", "item_id", "expected_fingerprint", "dry_run"], "optional": ["timeout_seconds"], "actual_requires": ["preview_hash"], "event_requires": ["search_window"]},
+    "items claim": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "item_id", "expected_fingerprint", "managed", "dry_run"], "optional": ["timeout_seconds"], "actual_requires": ["preview_hash"], "event_requires": ["search_window"]},
+    "unmanaged items patch": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "item_id", "expected_fingerprint", "payload", "dry_run"], "actual_requires": ["preview_hash"], "event_requires": ["search_window"], "payload_semantics": "full target snapshot for title/due/priority or title/location/time/alarms; omitted native fields are preserved by the bridge"},
+    "unmanaged reminders complete": {"required": ["operation_id", "source_id", "container_id", "confirm_private_container", "item_id", "expected_fingerprint", "dry_run"], "actual_requires": ["preview_hash"]},
+    "unmanaged items delete": {"required": ["operation_id", "entity", "source_id", "container_id", "confirm_private_container", "item_id", "expected_fingerprint", "dry_run"], "actual_requires": ["preview_hash"]}
+  },
+  "shapes": {
+    "entity": ["reminder", "event"],
+    "search_window": {
+      "required": ["start_at", "end_at"],
+      "start_at": "RFC 3339 timestamp with explicit offset",
+      "end_at": "RFC 3339 timestamp with explicit offset; exclusive upper bound"
+    },
+    "reminder_due": {
+      "one_of": [
+        {"kind": "none"},
+        {"kind": "date", "date": "YYYY-MM-DD"},
+        {"kind": "date_time", "at": "RFC 3339 minute-precision timestamp with explicit offset", "timezone": "IANA timezone matching the offset"}
+      ]
+    },
+    "event_time": {
+      "one_of": [
+        {"kind": "timed", "start_at": "RFC 3339 minute-precision timestamp with explicit offset", "end_at": "RFC 3339 minute-precision timestamp with explicit offset", "timezone": "IANA timezone matching both offsets"},
+        {"kind": "all_day", "start_date": "YYYY-MM-DD", "end_date_exclusive": "YYYY-MM-DD"}
+      ]
+    },
+    "event_alarm": {"required": ["minutes_before"], "minutes_before": "integer 0..10080; display-relative only; maximum five unique alarms"},
+    "scope": {"required": ["read_container_ids", "write_source_id", "write_container_id", "private_confirmed"], "disabled_provider": {"read_container_ids": [], "write_source_id": null, "write_container_id": null, "private_confirmed": false}},
+    "dry_run": "required boolean on every mutation; true for preview and false only with preview_hash for execute"
+  },
+  "managed": {
+    "required": ["schema_version", "schedule_id", "entity", "role"],
+    "schema_version": 1,
+    "reminder_roles": ["task", "deadline"],
+    "event_roles": ["appointment", "commitment", "time-block"]
+  },
+  "ownership": ["personal_scheduler", "goal_planner", "unmanaged", "foreign_marker", "malformed_marker"],
+  "reminder_payload": {
+    "required": ["title", "due", "priority"],
+    "create_only_optional": ["user_notes"],
+    "title": "1..500 characters, no line breaks",
+    "due": "shapes.reminder_due",
+    "priority": [0, 1, 5, 9],
+    "recurrence": "unsupported",
+    "alarms": "unsupported"
+  },
+  "event_payload": {
+    "required": ["title", "location", "time", "alarms"],
+    "create_only_optional": ["user_notes"],
+    "title": "1..500 characters, no line breaks",
+    "location": "non-empty string without NUL, or null; use null for no location",
+    "time": "shapes.event_time",
+    "alarms": "array of shapes.event_alarm",
+    "recurrence": "unsupported",
+    "invitations": "mutation unsupported"
+  },
+  "mutation_protocol": {
+    "preview": "dry_run=true returns preview_hash and does not create a journal",
+    "event_store_epoch": "every successful mutation preview/preflight/result must include a non-empty event_store_id; missing stops before mutation; a changed preflight invalidates scopes/locators before actual, and a changed successful actual result remains outcome_unknown without rebuilding locators",
+    "actual_store_handshake": "expected_event_store_id is an executor-owned internal transport field, forbidden in public requests and excluded from preview intent; the executor injects the fresh-preflight epoch into the actual bridge request and Swift verifies it again immediately before any native effect",
+    "operation_epoch": "every operation that enters in_flight retains its fresh-preflight event_store_id; unresolved operations cannot reconcile across epochs, and terminal success replay is successful only while the current state remains in that epoch",
+    "bridge_exit_consistency": "a nonzero bridge exit can never propagate ok=true; the executor normalizes it to ok=false and supplies bridge_protocol_error when the bridge omitted an error",
+    "notes_preservation": "mutations that retain or compose notes compare exact expected notes against native readback in Swift memory; raw notes are never returned or persisted by the executor",
+    "execute": "same public request with dry_run=false and preview_hash; executor checkpoints prepared, repeats fresh dry-run, checkpoints in_flight, injects the internal expected_event_store_id, invokes EventKit, reads back, then checkpoints terminal",
+    "prepared_zero_match": "safe to perform the first invocation because in_flight has not been checkpointed",
+    "in_flight_or_outcome_unknown": "never replay automatically; operations reconcile re-submits the original request, verifies its journal hash, performs bounded reads itself, and terminalizes only a proven verified_local/not_applied/conflict result from an ok=true read envelope whose non-empty event_store_id matches the journal; every nonzero or ok=false read remains outcome_unknown",
+    "reconcile_read_shapes": "successful items find permits only count=0 with null/absent item or count=1 with one item object; successful items get must return the exact requested item_id; successful containers list must return an array of objects; malformed success remains outcome_unknown",
+    "manual_resolution": "operations resolve can close prepared as not_applied; after in_flight it may only record conflict or explicit abandon_unknown, never self-reported success/not_applied",
+    "delete_timeout": "absence alone never proves deletion",
+    "lock_scope": "owner-only state lock spans checkpoint, child EventKit operation, readback response, and terminal checkpoint"
+  },
+  "state": {
+    "path": "~/Library/Application Support/io.github.sylviachenxy.sylvia-agent-skills.personal-scheduler-eventkit/state-v2.json",
+    "legacy_v1_policy": "fail closed; never auto-migrate or replay because pre-first-cut unresolved operations do not carry a trustworthy EventKit epoch",
+    "directory_mode": "0700",
+    "file_and_lock_mode": "0600",
+    "phases": ["prepared", "in_flight", "outcome_unknown", "terminal"],
+    "privacy": "IDs, states, timestamps, hashes and fingerprints only; no titles, notes, locations, attendees, account names or emails"
+  },
+  "unsupported": [
+    "native recurrence mutation",
+    "container deletion",
+    "invited event mutation",
+    "subscribed, immutable or delegated container mutation",
+    "Reminder alarm mutation",
+    "direct invocation of the internal bridge runner or app; bundled static tokens are accidental-misuse guards, not same-user authentication",
+    "AppleScript, UI automation, iCloud.com or CalDAV fallback"
+  ]
+}

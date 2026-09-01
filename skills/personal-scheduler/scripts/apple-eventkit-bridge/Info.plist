@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDisplayName</key>
+    <string>Personal Scheduler EventKit Bridge</string>
+    <key>CFBundleExecutable</key>
+    <string>personal-scheduler-eventkit</string>
+    <key>CFBundleIdentifier</key>
+    <string>io.github.sylviachenxy.sylvia-agent-skills.personal-scheduler-eventkit</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>PersonalSchedulerEventKitBridge</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>PersonalSchedulerSignatureKind</key>
+    <string>adhoc</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>Personal Scheduler uses full Calendar access to inspect approved schedules and create, verify, update, reconcile, or delete only the personal events you approve.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Personal Scheduler uses Calendar access to manage only the personal events you approve.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>Personal Scheduler uses full Reminders access to create, verify, update, complete, reconcile, or delete only the personal reminders you approve.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>Personal Scheduler uses Reminders access to manage only the personal reminders you approve.</string>
+</dict>
+</plist>

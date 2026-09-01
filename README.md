@@ -8,6 +8,7 @@ Sylvia 的个人 Agent Skills 仓库。仓库遵循 [Agent Skills 开放规范](
 | --- | --- |
 | [`deep-reading-coach`](skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
 | [`goal-planner`](skills/goal-planner/) | 把模糊意图建立成有证据的 SMART Goal，以 Obsidian 保存完整记录，并通过 EventKit 投影到 Apple Reminders 与 Apple Calendar、由 iCloud 同步、持续 check-in。 |
+| [`personal-scheduler`](skills/personal-scheduler/) | 使用随附的 macOS EventKit executor，在 Apple Reminders 与 Apple Calendar 中捕捉、查看、编排和调整个人学习与生活日程。 |
 
 ## 安装
 
@@ -23,6 +24,14 @@ gh skill install sylviachenxy/sylvia-agent-skills deep-reading-coach \
 
 ```bash
 gh skill install sylviachenxy/sylvia-agent-skills goal-planner \
+  --agent codex \
+  --scope user
+```
+
+例如安装个人日程 skill：
+
+```bash
+gh skill install sylviachenxy/sylvia-agent-skills personal-scheduler \
   --agent codex \
   --scope user
 ```

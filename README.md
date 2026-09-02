@@ -10,6 +10,7 @@ Sylvia 的个人 Agent Skills 仓库。仓库遵循 [Agent Skills 开放规范](
 | [`goal-planner`](skills/goal-planner/) | 把模糊意图建立成有证据的 SMART Goal，以 Obsidian 保存完整记录，并通过 EventKit 投影到 Apple Reminders 与 Apple Calendar、由 iCloud 同步、持续 check-in。 |
 | [`personal-scheduler`](skills/personal-scheduler/) | 使用随附的 macOS EventKit executor，在 Apple Reminders 与 Apple Calendar 中捕捉、查看、编排和调整个人学习与生活日程。 |
 | [`weekly-review`](skills/weekly-review/) | 从 Obsidian、Apple 原生工具和用户批准的 Mac 工作痕迹中提炼证据，经用户确认后形成个人周复盘并写入 Obsidian。 |
+| [`morning-brief`](skills/morning-brief/) | 在 Mac 持久管理偏好并于起床前生成晨间简报，经 Apple Notes 分发；手机绑定一次后无需随偏好重配，附首次 setup、只读采集与手机/排程验证。 |
 
 ## 安装
 
@@ -41,6 +42,14 @@ gh skill install sylviachenxy/sylvia-agent-skills personal-scheduler \
 
 ```bash
 gh skill install sylviachenxy/sylvia-agent-skills weekly-review \
+  --agent codex \
+  --scope user
+```
+
+例如安装晨间简报 skill（安装后先由 Codex 引导完成个人配置与设备验证，不会自动连接账号或建立定时任务）：
+
+```bash
+gh skill install sylviachenxy/sylvia-agent-skills morning-brief \
   --agent codex \
   --scope user
 ```

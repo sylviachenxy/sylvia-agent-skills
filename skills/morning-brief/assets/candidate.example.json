@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "config_id": "synthetic-demo-only",
+  "config_revision": 1,
+  "applicable_date": "2026-09-02",
+  "revision": 1,
+  "generated_at": "2026-09-02T06:10:00+08:00",
+  "modules": {
+    "updates": {
+      "coverage": "complete",
+      "as_of": "2026-09-02T06:05:00+08:00",
+      "collected_through": "2026-09-02T06:00:00+08:00",
+      "query_window": {"start_at": "2026-09-01T21:00:00+08:00", "end_at": "2026-09-02T06:00:00+08:00"},
+      "result_count": 1,
+      "truncated_reason": null,
+      "error": null,
+      "items": [
+        {
+          "title": "合成天文台发布演示观测安排",
+          "summary": "这是一条完全虚构的测试记录，仅验证字段、时间窗、主题关联、中文与链接渲染；没有读取真实来源，链接也不是该虚构事实的证据。",
+          "source_url": "https://example.org/synthetic-observatory/announcement",
+          "source_label": "合成来源（未访问）",
+          "topic_id": "synthetic-observatory",
+          "published_at": "2026-09-01T22:00:00+08:00",
+          "occurred_at": "2026-09-05T19:00:00+08:00"
+        }
+      ]
+    }
+  }
+}

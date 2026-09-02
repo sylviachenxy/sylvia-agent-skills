@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "config_id": "synthetic-demo-only",
+  "config_revision": 1,
+  "timezone": "Asia/Shanghai",
+  "windows": {
+    "lookback": {
+      "start": {"day_offset": -1, "time": "21:00"},
+      "end": {"day_offset": 0, "time": "06:00"}
+    },
+    "lookahead": {
+      "start": {"day_offset": 0, "time": "06:00"},
+      "end": {"day_offset": 0, "time": "21:00"}
+    }
+  },
+  "schedule": {
+    "executor": "mac",
+    "weekdays": [1, 2, 3, 4, 5, 6, 7],
+    "generate_at": "06:05",
+    "ready_by": "06:20",
+    "wake_at": "06:30",
+    "generation_buffer_minutes": 10,
+    "sync_buffer_minutes": 10
+  },
+  "modules": {
+    "weather": {"enabled": false, "required": false, "max_age_hours": 3, "max_items": 1},
+    "calendar": {"enabled": false, "required": false, "max_age_hours": 1, "max_items": 8},
+    "reminders": {"enabled": false, "required": false, "max_age_hours": 1, "max_items": 5},
+    "goals": {"enabled": false, "required": false, "max_age_hours": 24, "max_items": 3},
+    "updates": {
+      "enabled": true,
+      "required": true,
+      "max_age_hours": 2,
+      "max_items": 3,
+      "scope": {
+        "topics": [{"id": "synthetic-observatory", "query": "合成示例天文台的官方公告（不代表任何用户的真实偏好）"}],
+        "include": ["仅该合成对象的官方公告"],
+        "exclude": ["其他对象及猜测"],
+        "preferred_sources": ["https://example.org/"],
+        "language": "zh-CN",
+        "region": null
+      }
+    }
+  },
+  "storage": {
+    "scope": "private-local",
+    "state_dir": "/tmp/morning-brief-synthetic-demo",
+    "retention_days": 7,
+    "notes": {"account": "SYNTHETIC-NOT-A-REAL-ACCOUNT", "folder": "SYNTHETIC-DEMO-ONLY", "shared": false}
+  }
+}

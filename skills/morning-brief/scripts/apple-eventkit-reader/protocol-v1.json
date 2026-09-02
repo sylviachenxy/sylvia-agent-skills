@@ -1,0 +1,77 @@
+{
+  "protocol_version": 1,
+  "reader_version": "1.0.0",
+  "entrypoint": "scripts/apple-eventkit-reader.sh",
+  "transport": "One strict JSON object on stdin; exactly one JSON envelope on stdout. Exit 0 is ok:true; exit 2 is ok:false. Native stderr is discarded and private source data is not spooled to files.",
+  "identity": {
+    "bundle_id": "io.github.sylviachenxy.sylvia-agent-skills.morning-brief-eventkit-reader",
+    "minimum_macos": "14.0",
+    "signature": "ad-hoc",
+    "caveat": "Rebuilding an ad-hoc signed app may require macOS authorization again. doctor does not inspect permission state."
+  },
+  "read_only_contract": {
+    "eventkit_data_mutated": false,
+    "permission_prompt_command": "setup authorize",
+    "permission_prompt_requires": {"confirmed": true},
+    "container_metadata_requires": {"command": "setup containers list", "confirmed": true},
+    "normal_queries_do_not_prompt": true,
+    "never_returned": ["notes", "url", "obsidian_url", "goal_path", "attendees", "organizer", "location", "alarms", "recurrence_rules"],
+    "goal_link_opt_in": "include_goal_links defaults to false; true reads notes in memory only to validate a managed v2 block and projects three stable IDs. No native URL property is read.",
+    "not_a_sandbox": "macOS EventKit grants full access, not read-only access; this code has no save/remove/complete/commit or other native data mutation command.",
+    "local_effects": "Builds an ad-hoc signed app inside the ignored .build directory. Permission setup may prompt and change OS authorization. Query timezone only changes the process-local Foundation default timezone."
+  },
+  "limits": {
+    "input_bytes": 1048576,
+    "output_bytes": 4194304,
+    "container_ids": [1, 50],
+    "result_limit": [1, 500],
+    "maximum_logical_source_window_days": 100,
+    "identifier_and_title_utf8_bytes": 4096,
+    "managed_notes_parse_bytes": 262144,
+    "build_timeout_seconds": 120,
+    "event_query_watchdog_seconds": 30,
+    "reminder_timeout_seconds": [5, 60],
+    "permission_timeout_seconds": [30, 180]
+  },
+  "commands": {
+    "capabilities": {"input": null, "offline": true},
+    "doctor": {"input": null, "offline": true, "permissions": "not_checked_offline", "native_store_initialized": false},
+    "self-test": {"input": null, "offline": true, "native_store_initialized": false},
+    "setup authorize": {"input": {"entity": "event | reminder", "confirmed": true, "timeout_seconds": "optional integer 30..180, default 120"}},
+    "setup containers list": {"input": {"entity": "event | reminder", "confirmed": true}, "output": "Only container_id/title/source_id/source_title, event_store_id and explicit metadata-only scope; no event or reminder contents."},
+    "events list": {
+      "input": {"calendar_ids": ["1..50 unique nonblank IDs"], "window": {"start_at": "RFC3339 with offset", "end_at": "RFC3339 with offset"}, "timezone": "IANA name", "limit": "integer 1..500", "include_goal_links": "optional boolean, default false"},
+      "selection": "Events overlapping [start_at,end_at), including cross-midnight, all-day, canceled, tentative and free events. Future source windows are supported independently from the news lookback window.",
+      "sort": "Actual start time, then container/item ID, before truncation; occurrences are never collapsed by series ID.",
+      "item_fields": ["item_id", "calendar_id", "title", "start_at", "end_at", "all_day", "timezone", "status", "availability", "recurring", "detached", "occurrence_start_at", "original_occurrence_at", "created_at", "last_modified_at", "managed", "managed_status"],
+      "all_day_additional_fields": ["start_date", "end_date_exclusive", "date_timezone", "date_timezone_inferred_from_request"],
+      "all_day_semantics": "EventKit floating/all-day dates are returned in the process default timezone (SDK EKEvent.h). The reader sets that process-local timezone to the requested IANA zone before fetching; end_date_exclusive remains exclusive. All-day does not imply busy.",
+      "occurrence_semantics": "occurrence_start_at is this instance's actual start. original_occurrence_at preserves EventKit occurrenceDate, which may differ for a moved detached occurrence. item_id alone is not a permanent or unique series-instance identity.",
+      "status_values": ["none", "confirmed", "tentative", "canceled", "unknown"],
+      "availability_values": ["busy", "free", "tentative", "unavailable", "not_supported", "unknown"]
+    },
+    "reminders list": {
+      "input": {"list_ids": ["1..50 unique nonblank IDs"], "window": {"start_at": "explicit bounded overdue start, RFC3339 offset", "end_at": "explicit forecast end, RFC3339 offset"}, "timezone": "IANA name", "include_undated": "required boolean; setup default false", "limit": "integer 1..500", "include_goal_links": "optional boolean, default false", "timeout_seconds": "optional integer 5..60, default 20"},
+      "selection": "Incomplete only. Timed due dates use [start_at,end_at). Date-only due dates are included when their whole civil day overlaps the query in its configured timezone. A date-only deadline never becomes midnight-overdue.",
+      "backend_scope": "include_undated:false uses a bounded incomplete-due predicate from start's civil midnight minus 48 hours to end's civil midnight plus 72 hours, then strictly filters requested civil/timed scope. This timezone guard is disclosed in scope.backend_query_window. include_undated:true queries all incomplete candidates in the selected lists, since EventKit has no dedicated undated predicate, then filters dated items back to the requested window. It does not read all system lists or completed items.",
+      "sort": "Actual due instant; date-only items sort at the end of that civil day; ties use container/item ID. Undated items last. Sorting precedes the result limit; priority is preserved, not converted into a fabricated importance score.",
+      "item_fields": ["item_id", "list_id", "title", "due_date", "due_at", "due", "completed", "completion_at", "priority", "recurring", "current_instance_only", "created_at", "last_modified_at", "managed", "managed_status"],
+      "date_semantics": "due_date is YYYY-MM-DD or null; due_at is an offset timestamp or null, never both. due preserves components, native timezone, effective_timezone and timezone_inferred_from_request. Nil native timezone denotes floating time; explicit request timezone supplies interpretation. Nonexistent or ambiguous DST timed deadlines fail closed rather than invent an instant.",
+      "recurrence_semantics": "Only the current incomplete native reminder instance is returned; future recurrence instances are not synthesized."
+    }
+  },
+  "source_envelope": {
+    "fields": ["ok", "reader_version", "protocol_version", "eventkit_data_mutated", "command", "eventkit_data_accessed", "event_store_id", "coverage", "as_of", "collected_through", "query_window", "timezone", "scope", "result_count", "matched_count", "limit", "truncated", "truncated_reason", "error", "items"],
+    "coverage": "complete for successful untruncated scoped reads; partial with truncated_reason=result_limit otherwise. Failure is ok:false/error, never a successful zero-item read. Caller records unavailable in its module coverage.",
+    "as_of": "Read start time; not a guarantee of an atomic native snapshot.",
+    "collected_through": "Read completion time; Calendar/Reminders may still change or be awaiting iCloud sync.",
+    "event_store_id": "Current native store epoch; item/container locators must not be treated as permanent across store changes.",
+    "managed": "null or {schema_version:2,goal_id,action_id:null|string,projection_id}; not proof of Goal approval, active status, importance or completion.",
+    "managed_status": ["not_requested", "absent", "valid", "malformed", "unsupported", "oversized"],
+    "malformed_managed": "Preserve the native item and mark association unavailable. Do not output damaged marker text or infer linkage from title."
+  },
+  "examples": {
+    "events": {"calendar_ids": ["SYNTHETIC-CALENDAR-ID"], "window": {"start_at": "2026-09-03T06:00:00+08:00", "end_at": "2026-09-03T21:00:00+08:00"}, "timezone": "Asia/Shanghai", "limit": 50, "include_goal_links": false},
+    "reminders": {"list_ids": ["SYNTHETIC-LIST-ID"], "window": {"start_at": "2026-08-27T00:00:00+08:00", "end_at": "2026-09-03T21:00:00+08:00"}, "timezone": "Asia/Shanghai", "include_undated": false, "limit": 50, "include_goal_links": true, "timeout_seconds": 20}
+  }
+}

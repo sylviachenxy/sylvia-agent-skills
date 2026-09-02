@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDisplayName</key>
+    <string>Weekly Review EventKit Reader</string>
+    <key>CFBundleExecutable</key>
+    <string>weekly-review-eventkit-reader</string>
+    <key>CFBundleIdentifier</key>
+    <string>io.github.sylviachenxy.sylvia-agent-skills.weekly-review-eventkit-reader</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>WeeklyReviewEventKitReader</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>Weekly Review uses read-only Calendar access to summarize events from calendars you explicitly select.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Weekly Review uses read-only Calendar access to summarize events from calendars you explicitly select.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>Weekly Review uses read-only Reminders access to summarize reminders from lists you explicitly select.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>Weekly Review uses read-only Reminders access to summarize reminders from lists you explicitly select.</string>
+    <key>WeeklyReviewSignatureKind</key>
+    <string>adhoc</string>
+</dict>
+</plist>

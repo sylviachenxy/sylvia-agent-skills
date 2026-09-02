@@ -1,0 +1,42 @@
+{
+  "eventkit": {
+    "calendar_ids": [],
+    "reminder_list_ids": []
+  },
+  "files": {
+    "content_roots": [],
+    "discovery_roots": [],
+    "exclude_globs": [
+      ".git/**",
+      "node_modules/**",
+      ".env",
+      "*.pem"
+    ]
+  },
+  "git": {
+    "repositories": []
+  },
+  "limits": {
+    "max_baseline_entries": 20000,
+    "max_candidates_per_source": 500,
+    "max_content_chars": 20000,
+    "max_diff_lines": 400,
+    "max_report_bytes": 2097152,
+    "snapshot_max_file_bytes": 262144,
+    "snapshot_max_total_bytes": 2097152
+  },
+  "mail": {
+    "scopes": []
+  },
+  "notes": {
+    "scopes": []
+  },
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "vault": {
+    "goals_read": false,
+    "output_root": "Reviews/Weekly",
+    "path": "/Users/your-name/path/to/ObsidianVault"
+  },
+  "week_start": "monday"
+}

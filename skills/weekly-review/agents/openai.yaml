@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Review"
+  short_description: "从本机多来源证据提炼成果，完成真实、可追溯且可延续的个人周复盘"
+  default_prompt: "使用 $weekly-review，复盘我上周的成果、进展、学习与阻塞，并在我确认后写入 Obsidian。"

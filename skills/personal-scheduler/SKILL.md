@@ -36,7 +36,7 @@ license: All rights reserved
 以下请求交给相邻能力：
 
 - 从模糊愿望建立 SMART Goal、拆解目标、做 Goal check-in 或修改带 `[goal-planner:v2]` metadata 的对象：使用 `goal-planner`；
-- 汇总一周的目标、行动、结果和反思并形成叙事文档：已安装时使用未来的 `weekly-review`；尚未安装时只提供日程事实清单，并说明本 skill 不生成完整周报；
+- 汇总一周的目标、行动、结果和反思并形成叙事文档：已安装时使用 `weekly-review`；尚未安装时只提供日程事实清单，并说明本 skill 不生成完整周报；
 - 团队项目、多人任务分派、公司 roadmap：使用相应项目管理流程；
 - 发送、接受或拒绝会议邀请，修改参会人或处理共享 Calendar 权限：由用户在原生 App 或合适的协作工具中处理。
 

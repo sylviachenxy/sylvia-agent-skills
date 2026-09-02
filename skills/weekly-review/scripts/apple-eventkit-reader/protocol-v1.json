@@ -1,0 +1,182 @@
+{
+  "protocol_version": 1,
+  "reader_version": "1.0.0",
+  "transport": {
+    "command": "scripts/apple-eventkit-reader.sh <command words>",
+    "input": "one JSON object on stdin except for capabilities, doctor, and self-test",
+    "output": "one strict JSON object on stdout; generic property-list syntax, duplicate keys, non-finite numbers, and trailing values are rejected",
+    "success_exit": 0,
+    "failure_exit": 2,
+    "maximum_input_bytes": 1048576,
+    "maximum_output_bytes": 4194304
+  },
+  "identity": {
+    "bundle_id": "io.github.sylviachenxy.sylvia-agent-skills.weekly-review-eventkit-reader",
+    "minimum_macos": "14.0",
+    "signature": "ad_hoc",
+    "caveat": "The bundle identifier is stable, but an ad-hoc rebuild may cause macOS TCC to require authorization again. Run doctor after rebuilds."
+  },
+  "read_only_contract": {
+    "eventkit_data_mutated": false,
+    "only_non_data_side_effect": "authorize may display a macOS full-access prompt after confirmed=true",
+    "permission_prompt_requires": {
+      "confirmed": true
+    },
+    "explicit_scope": "Every item query requires 1-50 selected Calendar or Reminder list IDs, a half-open RFC 3339 window, and a 1-500 result limit.",
+    "string_and_output_limits": {
+      "input_identifier_utf8_bytes": 4096,
+      "eventkit_identifier_utf8_bytes": 4096,
+      "eventkit_title_utf8_bytes": 4096,
+      "behavior": "Reject an oversized field without echoing it; reject the entire envelope if serialized output plus its newline would exceed 4 MiB."
+    },
+    "never_returned": [
+      "notes",
+      "attendees",
+      "organizer",
+      "url",
+      "alarms",
+      "recurrence_rules"
+    ]
+  },
+  "common_success": {
+    "ok": true,
+    "reader_version": "1.0.0",
+    "protocol_version": 1,
+    "eventkit_data_mutated": false
+  },
+  "common_failure": {
+    "ok": false,
+    "reader_version": "1.0.0",
+    "protocol_version": 1,
+    "eventkit_data_mutated": false,
+    "error": {
+      "code": "stable_machine_code",
+      "message": "human-readable message",
+      "details": "optional JSON object"
+    }
+  },
+  "commands": {
+    "capabilities": {
+      "input": null,
+      "data_accessed": false
+    },
+    "doctor": {
+      "input": null,
+      "data_accessed": false,
+      "note": "Reads bundle, OS, and authorization status only; it does not instantiate an EventKit store or enumerate data."
+    },
+    "self-test": {
+      "input": null,
+      "data_accessed": false,
+      "note": "Runs pure parser, time-window, command-surface, and privacy allowlist checks."
+    },
+    "authorize": {
+      "input": {
+        "entity": "event | reminder",
+        "confirmed": true,
+        "timeout_seconds": "optional integer 30-300; default 120"
+      },
+      "data_accessed": false,
+      "side_effect": "May change only the macOS TCC permission state. Refuses to prompt unless confirmed is true."
+    },
+    "sources list": {
+      "input": {
+        "entity": "event | reminder"
+      },
+      "output_item_fields": [
+        "source_id",
+        "title",
+        "source_type",
+        "container_count"
+      ]
+    },
+    "containers list": {
+      "input": {
+        "entity": "event | reminder",
+        "source_id": "optional non-empty source ID or null"
+      },
+      "output_item_fields": [
+        "container_id",
+        "title",
+        "source_id",
+        "source_title",
+        "source_type",
+        "allowed_entities"
+      ]
+    },
+    "events list": {
+      "input": {
+        "calendar_ids": "array of 1-50 unique non-empty IDs",
+        "window": {
+          "start_at": "inclusive RFC 3339 timestamp with offset",
+          "end_at": "exclusive RFC 3339 timestamp with offset; at most 62 days after start_at"
+        },
+        "detail": "busy | summary",
+        "limit": "integer 1-500"
+      },
+      "busy_semantics": "Returns non-cancelled, non-free events without titles.",
+      "busy_item_fields": [
+        "item_id",
+        "calendar_id",
+        "time",
+        "availability",
+        "status",
+        "recurring"
+      ],
+      "summary_semantics": "Returns all matching events, including cancelled/free items, and adds title plus creation/modification timestamps.",
+      "summary_additional_item_fields": [
+        "title",
+        "created_at",
+        "last_modified_at"
+      ]
+    },
+    "reminders list": {
+      "input": {
+        "list_ids": "array of 1-50 unique non-empty IDs",
+        "window": {
+          "start_at": "inclusive RFC 3339 timestamp with offset",
+          "end_at": "exclusive RFC 3339 timestamp with offset; at most 62 days after start_at"
+        },
+        "selection": "completed_in_window | incomplete_due_in_window",
+        "limit": "integer 1-500",
+        "timeout_seconds": "optional integer 5-60; default 20"
+      },
+      "selection_semantics": {
+        "completed_in_window": "EventKit-bounded query by completion date.",
+        "incomplete_due_in_window": "EventKit-bounded query for incomplete reminders by due date."
+      },
+      "output_item_fields": [
+        "item_id",
+        "list_id",
+        "title",
+        "due",
+        "completed",
+        "completion_at",
+        "priority",
+        "recurring",
+        "created_at",
+        "last_modified_at"
+      ]
+    }
+  },
+  "examples": {
+    "events_summary": {
+      "calendar_ids": ["USER_CONFIRMED_CALENDAR_ID"],
+      "window": {
+        "start_at": "2026-08-31T00:00:00+08:00",
+        "end_at": "2026-09-07T00:00:00+08:00"
+      },
+      "detail": "summary",
+      "limit": 200
+    },
+    "completed_reminders": {
+      "list_ids": ["USER_CONFIRMED_LIST_ID"],
+      "window": {
+        "start_at": "2026-08-31T00:00:00+08:00",
+        "end_at": "2026-09-07T00:00:00+08:00"
+      },
+      "selection": "completed_in_window",
+      "limit": 200
+    }
+  }
+}

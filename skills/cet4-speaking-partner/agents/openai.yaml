@@ -1,0 +1,4 @@
+interface:
+  display_name: "CET-4 口语伙伴"
+  short_description: "以 CET-SET4 优秀标准进行语音训练、模考与证据复盘"
+  default_prompt: "使用 $cet4-speaking-partner 在 Voice 中按 CET-SET4“优秀”标准给我做一次无提示诊断，并在结束后生成 evidence receipt。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "雅思口语 8+ 教练"
+  short_description: "面向雅思口语 8+ 的日常训练、无提示模考、迁移复测与持久学习档案"
+  default_prompt: "使用 $ielts-speaking-coach，读取我的训练档案，按雅思口语 8+ 目标安排今天的练习；没有基线就先做无提示诊断。"

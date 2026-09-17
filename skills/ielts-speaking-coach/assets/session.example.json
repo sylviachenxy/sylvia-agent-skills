@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "session_id": "IS-example-text-only",
+  "profile_revision": 1,
+  "occurred_at": "2026-09-17T19:00:00+08:00",
+  "mode": "daily",
+  "status": "completed",
+  "duration_minutes": 5,
+  "conditions": {
+    "full_test": false,
+    "uninterrupted": true,
+    "timing_verified": false,
+    "timekeeper": null,
+    "timings": {},
+    "source": "synthetic_example_not_a_real_learner"
+  },
+  "attempts": [
+    {
+      "id": "A01",
+      "part": 1,
+      "kind": "cold",
+      "prompt_id": "P-example-study",
+      "topic": "study",
+      "prompt": "Where do you prefer to study?",
+      "familiarity": "unseen",
+      "support": "none",
+      "modality": "text",
+      "evidence": "I prefer the library because it is quieter than my room.",
+      "evidence_kind": "quote"
+    }
+  ],
+  "criteria": {
+    "FC": {"status": "not_observed", "evidence_ids": [], "note": "只有文字，不能评估完整口语流利度。"},
+    "LR": {"status": "partial", "evidence_ids": ["A01"], "note": "此合成例子能表达偏好；一句话不足以判断词汇广度。"},
+    "GRA": {"status": "partial", "evidence_ids": ["A01"], "note": "此合成例子使用了比较结构；需要新题验证。"},
+    "P": {"status": "not_observed", "evidence_ids": [], "note": "没有可听音频。"}
+  },
+  "focus_next": ["下次用语音回答陌生题，检查比较表达能否自发出现。"],
+  "review_items": [
+    {
+      "review_id": "R-example-comparison",
+      "criterion": "GRA",
+      "task": "在陌生问题中口头比较两种选择，不展示句型。",
+      "due_date": "2026-09-19"
+    }
+  ],
+  "review_results": [],
+  "limitations": ["这是格式演示，不是 Sylvia 的真实表现，也不是口语基线。"]
+}

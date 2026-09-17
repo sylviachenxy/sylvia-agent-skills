@@ -1,0 +1,9 @@
+{
+  "normal_minutes": 20,
+  "minimum_minutes": 5,
+  "feedback_language": "zh-CN",
+  "interests": ["music", "university life", "technology"],
+  "daily_trigger": "晚饭后",
+  "exam_date": null,
+  "store_quotes": true
+}

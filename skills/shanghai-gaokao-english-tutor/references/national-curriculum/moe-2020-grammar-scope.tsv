@@ -1,0 +1,104 @@
+id	category	item	source_marker	curriculum_level	gaokao_treatment	printed_page	pdf_page	notes
+G001	parts_of_speech.noun	可数名词及其单、复数		mandatory_continued	formal_core	179	187	
+G002	parts_of_speech.noun	不可数名词		mandatory_continued	formal_core	179	187	
+G003	parts_of_speech.noun	专有名词		mandatory_continued	formal_core	179	187	
+G004	parts_of_speech.noun	名词所有格		mandatory_continued	formal_core	179	187	
+G005	parts_of_speech.verb	动词的基本形式		mandatory_continued	formal_core	179	187	
+G006	parts_of_speech.verb	及物动词和不及物动词		mandatory_continued	formal_core	179	187	
+G007	parts_of_speech.verb	系动词		mandatory_continued	formal_core	179	187	
+G008	parts_of_speech.verb	助动词		mandatory_continued	formal_core	179	187	
+G009	parts_of_speech.verb	情态动词		mandatory_continued	formal_core	179	187	
+G010	parts_of_speech.adjective	形容词的基本形式		mandatory_continued	formal_core	179	187	
+G011	parts_of_speech.adjective	形容词的比较级和最高级		mandatory_continued	formal_core	179	187	
+G012	parts_of_speech.adverb	副词的基本形式		mandatory_continued	formal_core	179	187	
+G013	parts_of_speech.adverb	副词的比较级和最高级		mandatory_continued	formal_core	179	187	
+G014	parts_of_speech.pronoun	人称代词		mandatory_continued	formal_core	180	188	
+G015	parts_of_speech.pronoun	物主代词		mandatory_continued	formal_core	180	188	
+G016	parts_of_speech.pronoun	反身代词		mandatory_continued	formal_core	180	188	
+G017	parts_of_speech.pronoun	指示代词		mandatory_continued	formal_core	180	188	
+G018	parts_of_speech.pronoun	不定代词		mandatory_continued	formal_core	180	188	
+G019	parts_of_speech.pronoun	疑问代词		mandatory_continued	formal_core	180	188	
+G020	parts_of_speech.numeral	基数词		mandatory_continued	formal_core	180	188	
+G021	parts_of_speech.numeral	序数词		mandatory_continued	formal_core	180	188	
+G022	parts_of_speech.preposition	介词		mandatory_continued	formal_core	180	188	
+G023	parts_of_speech.conjunction	连词		mandatory_continued	formal_core	180	188	
+G024	parts_of_speech.article	冠词		mandatory_continued	formal_core	180	188	
+G025	parts_of_speech.interjection	感叹词		mandatory_continued	formal_core	180	188	
+G026	word_formation	合成法		mandatory_continued	formal_core	180	188	
+G027	word_formation	派生法		mandatory_continued	formal_core	180	188	
+G028	word_formation	转化法		mandatory_continued	formal_core	180	188	
+G029	word_formation	缩写和简写		mandatory_continued	formal_core	180	188	
+G030	syntax.sentence_type	陈述句		mandatory_continued	formal_core	180	188	
+G031	syntax.sentence_type.interrogative	一般疑问句		mandatory_continued	formal_core	180	188	
+G032	syntax.sentence_type.interrogative	特殊疑问句		mandatory_continued	formal_core	180	188	
+G033	syntax.sentence_type.interrogative	选择疑问句		mandatory_continued	formal_core	180	188	
+G034	syntax.sentence_type.interrogative	附加疑问句		mandatory_continued	formal_core	180	188	2025年日常修订版将本项改标为 *；本表保留2020版原标记。
+G035	syntax.sentence_type	祈使句		mandatory_continued	formal_core	180	188	
+G036	syntax.sentence_type	感叹句		mandatory_continued	formal_core	181	189	
+G037	syntax.structural_component	名词短语	**	selective_required	formal_core	181	189	
+G038	syntax.structural_component	动词短语	**	selective_required	formal_core	181	189	
+G039	syntax.structural_component	形容词短语	**	selective_required	formal_core	181	189	
+G040	syntax.structural_component	副词短语	**	selective_required	formal_core	181	189	
+G041	syntax.structural_component	介词短语	**	selective_required	formal_core	181	189	
+G042	syntax.functional_component	主语（S）		mandatory_continued	formal_core	181	189	
+G043	syntax.functional_component	谓语（指谓语部分的主要动词，也称谓词）（V）		mandatory_continued	formal_core	181	189	
+G044	syntax.functional_component	宾语（O）		mandatory_continued	formal_core	181	189	
+G045	syntax.functional_component	补语（C）		mandatory_continued	formal_core	181	189	
+G046	syntax.functional_component	状语（A）		mandatory_continued	formal_core	181	189	
+G047	syntax.functional_component	表语（P）		mandatory_continued	formal_core	181	189	
+G048	syntax.functional_component	定语（Attr.）		mandatory_continued	formal_core	181	189	
+G049	syntax.basic_pattern	主谓（SV）		mandatory_continued	formal_core	181	189	课标原文释义为“主语 + 谓词，下同”。
+G050	syntax.basic_pattern	主（系）表（SP）		mandatory_continued	formal_core	181	189	
+G051	syntax.basic_pattern	主谓宾（SVO）		mandatory_continued	formal_core	181	189	
+G052	syntax.basic_pattern	主谓宾宾（SVOO）		mandatory_continued	formal_core	181	189	
+G053	syntax.basic_pattern	主谓宾补（SVOC）		mandatory_continued	formal_core	181	189	
+G054	syntax.basic_pattern	主谓状（SVA）		mandatory_continued	formal_core	181	189	
+G055	syntax.basic_pattern	主谓宾状（SVOA）		mandatory_continued	formal_core	182	190	
+G056	syntax.basic_pattern	存现句		mandatory_continued	formal_core	182	190	
+G057	syntax.tense	一般现在		mandatory_continued	formal_core	182	190	
+G058	syntax.tense	一般过去		mandatory_continued	formal_core	182	190	
+G059	syntax.tense	一般将来		mandatory_continued	formal_core	182	190	
+G060	syntax.tense	现在进行		mandatory_continued	formal_core	182	190	
+G061	syntax.tense	过去进行		mandatory_continued	formal_core	182	190	
+G062	syntax.tense	现在完成		mandatory_continued	formal_core	182	190	
+G063	syntax.tense	过去将来	*	mandatory_required	formal_core	182	190	
+G064	syntax.tense	将来进行	**	selective_required	formal_core	182	190	
+G065	syntax.tense	过去完成	**	selective_required	formal_core	182	190	
+G066	syntax.tense	现在完成进行	**	selective_required	formal_core	182	190	
+G067	syntax.passive_voice	一般现在时的被动语态		mandatory_continued	formal_core	182	190	
+G068	syntax.passive_voice	一般过去时的被动语态		mandatory_continued	formal_core	182	190	
+G069	syntax.passive_voice	一般将来时的被动语态		mandatory_continued	formal_core	182	190	
+G070	syntax.passive_voice	现在进行时的被动语态	*	mandatory_required	formal_core	182	190	
+G071	syntax.passive_voice	现在完成时的被动语态	*	mandatory_required	formal_core	182	190	
+G072	syntax.passive_voice	过去进行时的被动语态	**	selective_required	formal_core	182	190	
+G073	syntax.passive_voice	过去完成时的被动语态	**	selective_required	formal_core	182	190	
+G074	syntax.nonfinite.infinitive	动词不定式作宾语		mandatory_continued	formal_core	182	190	
+G075	syntax.nonfinite.infinitive	动词不定式作补语		mandatory_continued	formal_core	182	190	
+G076	syntax.nonfinite.infinitive	动词不定式作目的状语		mandatory_continued	formal_core	182	190	
+G077	syntax.nonfinite.infinitive	动词不定式作定语	*	mandatory_required	formal_core	182	190	
+G078	syntax.nonfinite.infinitive	动词不定式作结果状语	*	mandatory_required	formal_core	182	190	
+G079	syntax.nonfinite.infinitive	动词不定式作主语	**	selective_required	formal_core	182	190	
+G080	syntax.nonfinite.infinitive	动词不定式作表语	**	selective_required	formal_core	182	190	
+G081	syntax.nonfinite.ing	动词的 -ing 形式作定语	*	mandatory_required	formal_core	182	190	
+G082	syntax.nonfinite.ing	动词的 -ing 形式作状语	*	mandatory_required	formal_core	182	190	
+G083	syntax.nonfinite.ing	动词的 -ing 形式作补语	*	mandatory_required	formal_core	182	190	
+G084	syntax.nonfinite.ing	动词的 -ing 形式作主语	**	selective_required	formal_core	182	190	
+G085	syntax.nonfinite.ing	动词的 -ing 形式作宾语	**	selective_required	formal_core	182	190	
+G086	syntax.nonfinite.ing	动词的 -ing 形式作表语	**	selective_required	formal_core	182	190	
+G087	syntax.nonfinite.ed	动词的 -ed 形式作定语	*	mandatory_required	formal_core	183	191	
+G088	syntax.nonfinite.ed	动词的 -ed 形式作状语	*	mandatory_required	formal_core	183	191	
+G089	syntax.nonfinite.ed	动词的 -ed 形式作补语	*	mandatory_required	formal_core	183	191	
+G090	syntax.nonfinite.ed	动词的 -ed 形式作表语	**	selective_required	formal_core	183	191	
+G091	syntax.agreement	主谓一致		mandatory_continued	formal_core	183	191	
+G092	syntax.compound_sentence	并列复合句		mandatory_continued	formal_core	183	191	
+G093	syntax.complex_sentence	宾语从句		mandatory_continued	formal_core	183	191	
+G094	syntax.complex_sentence	状语从句		mandatory_continued	formal_core	183	191	
+G095	syntax.complex_sentence.relative_clause	由关系代词 that、which、who、whom、whose 和关系副词 when、where、why 引导的限制性定语从句	*	mandatory_required	formal_core	183	191	
+G096	syntax.complex_sentence.relative_clause	由关系代词 which、who、whom、whose 和关系副词 when、where 引导的非限制性定语从句	**	selective_required	formal_core	183	191	
+G097	syntax.complex_sentence	主语从句	**	selective_required	formal_core	183	191	
+G098	syntax.complex_sentence	表语从句	**	selective_required	formal_core	183	191	
+G099	syntax.complex_sentence	同位语从句	***	optional_advanced	recognition_buffer	183	191	
+G100	syntax.ellipsis	省略	*	mandatory_required	formal_core	183	191	
+G101	syntax.inversion	倒装	***	optional_advanced	recognition_buffer	183	191	
+G102	syntax.emphasis	强调	***	optional_advanced	recognition_buffer	183	191	
+G103	syntax.subjunctive	虚拟语气	***	optional_advanced	recognition_buffer	183	191	

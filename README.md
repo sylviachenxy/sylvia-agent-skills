@@ -9,6 +9,7 @@ Sylvia 的个人 Agent Skills 仓库。仓库遵循 [Agent Skills 开放规范](
 | [`deep-reading-coach`](skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
 | [`cet4-speaking-partner`](skills/cet4-speaking-partner/) | 以 CET-SET4 官方“优秀”等级为锚，进行无提示语音诊断、条件满足时的严格模考、互动训练、迁移复测和证据复盘。 |
 | [`ielts-speaking-coach`](skills/ielts-speaking-coach/) | 以雅思口语 8+ 为目标，进行日常专项训练、无提示模考、间隔迁移复测，在 Obsidian 持久管理偏好与证据，并衔接目标、日程和周复盘。 |
+| [`shanghai-gaokao-english-tutor`](skills/shanghai-gaokao-english-tutor/) | 上海普通高考英语一对一诊断、分级辅导与迁移复测，在 Obsidian 持久记录学情；随附完整教材校对转写、3,319 行分学段词表、国家课程基线与来源疑点，无需另配资料目录。 |
 | [`goal-planner`](skills/goal-planner/) | 把模糊意图建立成有证据的 SMART Goal，以 Obsidian 保存完整记录，并通过 EventKit 投影到 Apple Reminders 与 Apple Calendar、由 iCloud 同步、持续 check-in。 |
 | [`personal-scheduler`](skills/personal-scheduler/) | 使用随附的 macOS EventKit executor，在 Apple Reminders 与 Apple Calendar 中捕捉、查看、编排和调整个人学习与生活日程。 |
 | [`weekly-review`](skills/weekly-review/) | 从 Obsidian、Apple 原生工具和用户批准的 Mac 工作痕迹中提炼证据，经用户确认后形成个人周复盘并写入 Obsidian。 |
@@ -36,6 +37,14 @@ gh skill install sylviachenxy/sylvia-agent-skills cet4-speaking-partner \
 
 ```bash
 gh skill install sylviachenxy/sylvia-agent-skills ielts-speaking-coach \
+  --agent codex \
+  --scope user
+```
+
+例如安装上海高考英语教练（完整校对教材与词表随 skill 安装；持续学情另由 Codex 引导保存到个人 Vault）：
+
+```bash
+gh skill install sylviachenxy/sylvia-agent-skills shanghai-gaokao-english-tutor \
   --agent codex \
   --scope user
 ```

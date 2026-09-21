@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-09-20",
+  "packaged_on": "2026-09-21",
+  "unique_printed_pages": 307,
+  "printed_coverage": "iii–iv; 1–305",
+  "full_first_visual_pass": true,
+  "vocabulary_pages": 125,
+  "vocabulary_rows": 3319,
+  "independent_crosscheck": {
+    "printed_pages": [
+      178,
+      180,
+      192,
+      193,
+      197,
+      200
+    ],
+    "rows": 140
+  },
+  "reused_review": "Units 1–2 reused only after page-image hash equality, not counted as a second review.",
+  "source_issues": "source-issues.md",
+  "scope": "Full reviewed textbook text, tables, tasks, answers, per-sense markers and annotated diagrams.",
+  "limits": [
+    "Not publication-grade zero-error or independent double proofreading of every page.",
+    "Cover and edition pages not provided; edition was confirmed by the source provider.",
+    "Diagrams have structural transcriptions plus 15 selected original visual-task pages and a stress-mark crop; not a full facsimile PDF.",
+    "Companion audio/video and separately referenced textbook pages were not supplied.",
+    "Source fidelity does not endorse source mistakes or establish applicability to an exam year."
+  ]
+}

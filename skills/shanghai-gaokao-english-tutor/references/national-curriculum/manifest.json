@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source_id": "moe-english-2017-revised-2020",
+  "verified_on": "2026-09-15",
+  "title": "普通高中英语课程标准（2017 年版 2020 年修订）",
+  "official_notice": "https://hudong.moe.gov.cn/srcsite/A26/s8001/202006/t20200603_462199.html",
+  "official_zip": "https://hudong.moe.gov.cn/srcsite/A26/s8001/202006/W020200603315372317586.zip",
+  "same_bytes_publisher_pdf": "https://www.pep.com.cn/xw/zt/rjwy/gzkb2020/202205/P020220517522153664167.pdf",
+  "original_pdf_sha256": "8ebd6bb12e9eb1c58e422ee01b540a4a71d2e681a4c4a764a36ee3a34b21c1be",
+  "original_zip_sha256": "30204dfd2357c6d6f3bd66e55538f1fbb62a952459aff9c0293e3e2d608d004f",
+  "vocabulary_rows": 3000,
+  "grammar_leaf_nodes": 103,
+  "limits": [
+    "National 2020 curriculum, not the Shanghai per-sense table or automatic adoption by any later exam year.",
+    "Source attribution is preserved; this is not original textbook content authored by this project."
+  ],
+  "resources": {
+    "moe-2020-vocabulary-3000.tsv": "90f9c48f334fc710312c70a32115a23e86d0888cda5f7ae7741aa970abcdf98f",
+    "moe-2020-vocabulary-3000.txt": "dce32cfaf8b0319680a97ae64b889b153bef077f67b36e9f351c442c74e578e7",
+    "moe-2020-grammar-scope.tsv": "3fa4cda1f6863a0bc71d9033fddd9cc1022c24cd86345d7dd8b6e7ab84c73ffb",
+    "index.md": "51338605f7d105ec637a8b82f9be38541b935559e8d3193970ec22e19869c4c5"
+  }
+}

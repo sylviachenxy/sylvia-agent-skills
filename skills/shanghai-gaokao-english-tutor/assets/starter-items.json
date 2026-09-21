@@ -1,0 +1,146 @@
+[
+  {
+    "item_id": "START-GRAMMAR-01",
+    "domain": "grammar",
+    "focus": "sh-verb-tense:past-perfect",
+    "demand": "produce",
+    "stem": "Fill the gap and briefly explain the time relationship: By the time Mei arrived at the station, the last train ___ (leave).",
+    "key": "had left. The departure precedes Mei's arrival; accept a grammatical equivalent that preserves the given verb and relationship.",
+    "rubric": [
+      "过去完成形式正确",
+      "说明离站早于到站，不只背时态名称"
+    ],
+    "time_limit_seconds": 90,
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-VOCAB-01",
+    "domain": "vocabulary",
+    "focus": "vocab:charge:request-payment",
+    "demand": "understand",
+    "stem": "The museum is free for students, but it charges other visitors five pounds. What does charges mean here? Which words support your answer?",
+    "key": "Requests payment / asks visitors to pay. Contrast with free and the price five pounds support this reading.",
+    "rubric": [
+      "识别为收费而非充电／控告",
+      "指出免费对比或价格信息的语境线索"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-READING-01",
+    "domain": "reading",
+    "focus": "reading:claim-limitation",
+    "demand": "understand",
+    "stem": "A school tested a quiet lunch room for one week. Twenty students used it daily and most said it helped them relax. However, students chose whether to participate, and the school collected no information from those who stayed away. The head teacher decided to continue the trial before making a permanent change.\nCan we conclude that the quiet room benefits every student? Answer and cite the strongest limitation in the text.",
+    "key": "No. The evidence comes from self-selected participants, not all students; nonparticipants were not surveyed. Most is not every. Accept either well-explained textual limitation without inventing opposite results.",
+    "rubric": [
+      "否定全体受益这一过度概括",
+      "提供自选参与／未调查未参加者的文本证据",
+      "不把未证明全体受益说成证明无效"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-CLOZE-01",
+    "domain": "cloze",
+    "focus": "discourse:contrast",
+    "demand": "understand",
+    "stem": "Choose the best connector and explain: The volunteers expected the garden project to be easy. ___, the soil was hard and water had to be carried from another building. A. Therefore B. However C. For example D. Similarly",
+    "key": "B. However: the difficulty contrasts with the initial expectation. Therefore implies unsupported consequence; the other options do not signal the contrast.",
+    "rubric": [
+      "选择 B",
+      "能说明预期与现实的反差，而非只看到一个词"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-SUMMARY-02",
+    "domain": "summary",
+    "focus": "summary:core-and-qualification",
+    "demand": "produce",
+    "stem": "Write a 35–50-word summary of this original training passage. The word limit is a practice setting, not an official exam rule.\nFor years, a town library closed at six in the evening. Residents who worked during the day often said that they could visit only on Saturdays. In response, the library tested a later closing time for one month, keeping its doors open until eight on weekdays. Posters at bus stops and notices on the library website announced the trial.\nDuring that month, evening visits increased. Many of the additional visitors were daytime workers who came to borrow books or use the computers after work. One visitor said that she could now collect books on her way home instead of making a separate weekend trip.\nHowever, the trial created difficulties for staff. No extra workers had been hired, so the existing team covered the longer schedule. Several employees reported feeling tired, especially when they had to close the building and return early the next morning.\nThe library therefore has not promised to make the change permanent. It will continue the later opening hours only if the town provides enough money for another evening shift. A decision on that funding is still pending.",
+    "key": "Cover the later-opening trial and increased access/visits, the staffing burden, and the funding condition for continuation. Possible 43-word version: A month-long trial of later library hours increased evening visits, particularly among daytime workers. However, the change tired existing staff because no extra workers were hired. Continuing the extended schedule therefore depends on the town funding an additional evening shift to support it.",
+    "rubric": [
+      "覆盖延时试行及访问增加，筛去宣传渠道／访客个例等次要细节",
+      "保留人手不足／疲劳问题",
+      "保留继续延时的经费条件，不误写为已决定永久实行",
+      "独立整合表述并遵守本题训练词数"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-TRANSLATION-01",
+    "domain": "translation",
+    "focus": "sh-inversion:not-until-production-extension",
+    "demand": "produce",
+    "stem": "Translate as an explicitly chosen production extension, using Not until: 直到她解释了原因，我才理解了她的决定。",
+    "key": "Not until she explained the reason did I understand her decision. Accept had explained where the temporal interpretation is preserved; reason(s) or equivalent natural wording may vary. Do not require inversion inside the until-clause.",
+    "rubric": [
+      "完整保留直到……才……的关系",
+      "Not until 前置后主句 did I understand",
+      "从句语序正常；意义和搭配自然"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-WRITING-01",
+    "domain": "writing",
+    "focus": "writing:proposal-and-support",
+    "demand": "produce",
+    "stem": "Original practice task, not an official exam prompt: Your school is considering a quiet lunch room. Write a 120–150-word email to the head teacher giving your recommendation, one concrete reason, and a practical way to address a likely problem.",
+    "key": "Multiple valid positions. Assess recommendation, developed reason, feasible handling of a relevant concern, reader-appropriate email organisation and language. Do not require support for the proposal or a memorised template.",
+    "rubric": [
+      "立场明确并回应真实任务",
+      "理由具体且支撑建议",
+      "提出与问题匹配的可行处理办法",
+      "组织与语域符合给校长的邮件",
+      "语言基本准确，遵守本训练词数"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  },
+  {
+    "item_id": "START-INSERTION-01",
+    "domain": "reading",
+    "focus": "reading:sentence-linking",
+    "demand": "understand",
+    "stem": "This is one sentence-insertion micro-task, not a full six-choose-four paper.\nStudents first listed the problems they noticed on their walk to school. [GAP] Finally, they compared the proposals and chose one they could complete in a month.\nWhich sentence fits best? A. They then worked in pairs to suggest solutions to those problems. B. The school had opened fifty years earlier. C. Walking is sometimes faster than taking a bus.",
+    "key": "A. first/then/finally and problems → solutions/proposals establish the sequence and reference. B and C do not bridge the stated stages.",
+    "rubric": [
+      "选择 A",
+      "说明至少一个跨句照应和过程顺序，不靠主题词碰运气"
+    ],
+    "source": {
+      "kind": "original",
+      "locator": "本 skill 原创起步题 2026-09-20；非真题、非标准化测验",
+      "answer_status": "tutor_checked"
+    }
+  }
+]

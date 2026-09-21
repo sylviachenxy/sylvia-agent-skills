@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "images": [
+    {
+      "printed_page": 59,
+      "document_id": "03-morphology",
+      "pdf_page": 28,
+      "file": "figures/p059.jpg",
+      "sha256": "2851fd930f943380cbb35a3ff035a97b1d1e8eddba8c4332a43c71f35ed02b6c",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 66,
+      "document_id": "03-morphology",
+      "pdf_page": 35,
+      "file": "figures/p066.jpg",
+      "sha256": "74d263f4f4dd0de239bcf061e60df5aeb0bd7d0277caed74e1b846b79b4fb6b4",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 67,
+      "document_id": "03-morphology",
+      "pdf_page": 36,
+      "file": "figures/p067.jpg",
+      "sha256": "1f30df66b7194a9a1e3ac0c311b3536ecc4dbb83ca9a907208d93163eb2f406c",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 69,
+      "document_id": "03-morphology",
+      "pdf_page": 38,
+      "file": "figures/p069.jpg",
+      "sha256": "144b270aae2e1f68e0e5fde77545386ab02a9f2276b3ae72ccdeabb9d3bec7f7",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 98,
+      "document_id": "04-syntax",
+      "pdf_page": 28,
+      "file": "figures/p098.jpg",
+      "sha256": "5d3e7289466407bcb4929b19b6539b5e2f809410b2c2a2e9c2f01e0c22d31d56",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 115,
+      "document_id": "05-discourse",
+      "pdf_page": 17,
+      "file": "figures/p115.jpg",
+      "sha256": "4240cd3a222f31bd13f8b8b8eda02051c2cce1cc56629182b4f09586dbcf194d",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 116,
+      "document_id": "05-discourse",
+      "pdf_page": 18,
+      "file": "figures/p116.jpg",
+      "sha256": "c96fe57bc7665e47890c2eb9a7dd46f98ccb67fa260dee9b69c754c1a3f310b0",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 117,
+      "document_id": "05-discourse",
+      "pdf_page": 19,
+      "file": "figures/p117.jpg",
+      "sha256": "30646ac3cdb83e28014c45dc21d6d3ab4c041f978ac61bb99d145f3997460e47",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 140,
+      "document_id": "06-functions",
+      "pdf_page": 13,
+      "file": "figures/p140.jpg",
+      "sha256": "8efa9308838182d69792eb2a9d2695727df98a4bc18461f5aa3b2e8de8a5a0fb",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 141,
+      "document_id": "06-functions",
+      "pdf_page": 14,
+      "file": "figures/p141.jpg",
+      "sha256": "bb1e6c0b8a3fbd07b2968a95495369d606404c307ab53e89dbc1db5b72d81afe",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 142,
+      "document_id": "06-functions",
+      "pdf_page": 15,
+      "file": "figures/p142.jpg",
+      "sha256": "f64298810006fbedde16bd3d47ab5d29bef88f000b9a3a0d89c189a6a81ab6c9",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 163,
+      "document_id": "07-themes",
+      "pdf_page": 14,
+      "file": "figures/p163.jpg",
+      "sha256": "02fd7dfcd5bafc3b744c2cf983d68eed9e3a4b7fdf85bbf25724bd5d1c197246",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 164,
+      "document_id": "07-themes",
+      "pdf_page": 15,
+      "file": "figures/p164.jpg",
+      "sha256": "7ce75810e38eb45e5e54b3290700032cbe45e1c4e6209d5f70ee3ceeff094ded",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 165,
+      "document_id": "07-themes",
+      "pdf_page": 16,
+      "file": "figures/p165.jpg",
+      "sha256": "55fb32f385394677cb4f2b04ee8bf76bc250f39c67eb3afcdfacd03da5e42e69",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    },
+    {
+      "printed_page": 168,
+      "document_id": "07-themes",
+      "pdf_page": 19,
+      "file": "figures/p168.jpg",
+      "sha256": "45ae052a9b0e598485383d060edef14f234aa4736762972b8294d4a99effdde8",
+      "audience": "teacher_reference",
+      "may_contain_answers": true
+    }
+  ],
+  "preservation": "Original extracted page JPEG bytes, verified against reviewed page-map image_sha256; no redrawing.",
+  "display_rule": "Teacher reference only. Isolate task image from answers and from other information-gap roles before student display."
+}

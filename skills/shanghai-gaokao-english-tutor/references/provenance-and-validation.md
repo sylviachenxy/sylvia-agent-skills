@@ -1,0 +1,52 @@
+# 来源、设计与验证边界
+
+## 资料来源
+
+主要地方课程依据为用户扫描并确认版本的《上海市高中英语学科教学基本要求（试验本）》。已完成目录及 1–305 页的视觉校对、表格重建和原书问题标注；3,319 行词表保留各学段与义项标记。按用户明确要求，完整校对转写、词表、来源、疑点和必要图像进入 references/textbook，随 skill 交付；国家 2020 完整词汇／语法基线另存 references/national-curriculum。仅 OCR 底稿、中间产物、原始开发记录和本机路径留在被忽略的研究目录，不是运行依赖。
+
+教材和国家课标内容属于各自原始来源，不因整理而变成本项目原创，也不声称出版社授权／背书或额外授予第三方材料的权利。书名、原页、原文件哈希与版本确认边界随包保留；封面／版本页未提供，不补造书目信息。完整转写不包含原本未提供的配套音视频与外部教材页。
+
+本包课程地图、教学协议、训练 rubric、脚本及八个起步题为独立实现；没有复制第三方 skill 文本或代码，也不把书中范文改名为原创题。目标是优秀的一对一教学质量，不冒充真实职称、官方教师或阅卷机构。
+
+## 设计致谢
+
+研究阶段受到以下项目抽象教学机制的启发：
+
+- [GarethManning / education-agent-skills](https://github.com/GarethManning/education-agent-skills)：先提取、渐进提示、撤除支架后的检查。
+- [Nar101 / learn-anything](https://github.com/Nar101/learn-anything)：答案与 rubric 先冻结，内容进度与掌握证据分开。
+- [Anthropic law-student](https://github.com/anthropics/claude-for-legal/tree/main/law-student)：一次性起步档案、持续 session 与共享状态。
+- [cskwork / supertutor-skill](https://github.com/cskwork/supertutor-skill)：用陌生任务检验迁移，而非教练自我宣告掌握。
+- 本仓库的 IELTS、CET 口语教练及 Goal / 周复盘工作流：证据持久化、模态诚实、数据 owner 与有限交接。
+
+这些是设计来源，不是官方背书。未将第三方许可证视为本仓库授权，也没有 fork 无许可证仓库。研究记录在本地独立保留；链接所示项目状态与许可如未来要复制资产须重新核验。
+
+## 可复现验证入口
+
+从仓库根目录：
+
+```bash
+python3 -m unittest discover -s skills/shanghai-gaokao-english-tutor/tests -v
+python3 skills/shanghai-gaokao-english-tutor/scripts/tutor_store.py --help
+python3 skills/shanghai-gaokao-english-tutor/scripts/curriculum_lookup.py --help
+gh skill publish --dry-run
+skills-ref validate skills/shanghai-gaokao-english-tutor
+```
+
+测试采用临时合成档案，不读写 Sylvia 的真实学习记录、Apple App 或账号。自动测试验证冻结、曝光、独立条件、复测、幂等、偏好版本、回读、受管区和路径安全；它不能证明教练判断永远正确。完整教材默认随安装使用，资料校验不需访问开发机或研究目录。
+
+2026-09-20 本地结果：53 项自动测试通过；quick_validate、官方 skills-ref 及 gh dry-run 校验通过。三组独立场景测试覆盖首次短诊断／曝光与文字口语边界、课程查询／概要出题、设置更新／新进程恢复；发现并修复了 macOS 目录别名、概要材料压缩不足及回执条件字段易误读的问题，相关回归通过。概要修订已改为新题 ID，并明确旧版曝光处理。
+
+2026-09-21 随包交付验证：自动测试增至 68 项，全部通过；quick_validate、官方 skills-ref 和 gh dry-run 通过。新增测试只复制 skill 到另一个安装目录，从无关工作目录以隔离 Python 进程运行，覆盖默认资料定位、全部章节、3,319 行词表及疑点、国家 3,000 词与 103 语法节点、图像与资源哈希、显式外部覆盖失败、缺件／篡改报错和无 corpus_path 的合成档案。45 项上海教学资源封存，15 张完整图页与原扫描页面哈希一致；开发导出检查确认正文／词表保留，改动限于编辑性来源导航。
+
+独立安装包前测实际查询了 charge、clear 与过去进行时被动语态层级冲突，并打开 Zoo A/B 图页、形成未泄露答案的文字改编起始回合。测试发现旧 PDF 回看说明，已改为随包图像导航。此项验证不是完整安装器验收、学生图像裁切验收、原样看图训练或真实学生试教；详细开发日志仅在开发环境保留，教学使用不依赖它们。
+
+这些结果只支持 first cut 的可运行性与所列行为边界，不是学生实测成绩。gh dry-run 另提示远程未设 tag protection；本次没有因此修改仓库权限或发布设置。
+
+## first cut 明确不声称的能力
+
+- 未内置正式整卷题库、商业音频、所有年份考试蓝图或官方自动阅卷器。
+- 2026 年 1 月官方规则不自动批准 2027 年或其他场次；不凭微题推算总分。
+- 本地资料完成一轮全量视觉校对及重点独立复核，不是出版级零差错或独立双人全文复校。
+- 语音／播放／计时须在实际客户端验证；文字用例通过不证明音频链路。
+- 个人档案仅单 Mac 写入；不保证云盘即时同步，不处理多人分布式并发。
+- 未经用户真实 setup 与训练，不宣称已经替 Sylvia 建档或取得真实提分效果。

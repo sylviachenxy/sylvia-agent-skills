@@ -11,3 +11,7 @@ venv/
 
 # Private maintainer notes; keep them off the remote repository.
 /.local-notes/
+
+# Development-only OCR, intermediate exports and local validation logs.
+# Installable teaching references live inside their owning skill.
+/research/

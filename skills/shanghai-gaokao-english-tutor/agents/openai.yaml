@@ -1,0 +1,4 @@
+interface:
+  display_name: "上海高考英语一对一教练"
+  short_description: "用有来源的诊断、分级提示与迁移复测备考上海英语，并持续保存学情"
+  default_prompt: "请用 $shanghai-gaokao-english-tutor 根据我的考试年份和真实作答诊断英语薄弱点，开始一次一对一训练。"

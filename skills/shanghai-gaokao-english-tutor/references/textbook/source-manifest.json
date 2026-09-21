@@ -1,0 +1,67 @@
+{
+  "title": "上海市高中英语学科教学基本要求（试验本）",
+  "intake_date": "2026-09-20",
+  "edition_confirmation": "User verified correct edition; cover and edition/copyright pages not scanned.",
+  "completeness_confirmation": "User confirmed all book content supplied except cover and edition pages.",
+  "scanned_pages": 308,
+  "unique_printed_pages": 307,
+  "documents": [
+    {
+      "id": "01-pronunciation",
+      "filename": "第一单元 语音.pdf",
+      "pdf_pages": 16,
+      "sha256": "9ac2486547f01989db105979dcb587c3b9adb56081fdfc3f57dd0deb7e0b72f1"
+    },
+    {
+      "id": "02-vocabulary",
+      "filename": "第二单元 词汇.pdf",
+      "pdf_pages": 18,
+      "sha256": "16abff38516841eb1da9ff20216170e034e8a24ba2f38d64eb74636fc6b3d5db"
+    },
+    {
+      "id": "03-morphology",
+      "filename": "第三单元 词法.pdf",
+      "pdf_pages": 39,
+      "sha256": "9bdae76bea051263486c043bb9fea3e8e01ba1ae23a72c8ba10451fa4264e416"
+    },
+    {
+      "id": "04-syntax",
+      "filename": "第四单元 句法.pdf",
+      "pdf_pages": 28,
+      "sha256": "81c55c9dc82722cf53a19a8e8896689681a9b478e7947e98da011db87f5a18ce"
+    },
+    {
+      "id": "05-discourse",
+      "filename": "第五单元 语篇.pdf",
+      "pdf_pages": 29,
+      "sha256": "08d13110be8c3493855df908ca9a1975835cf2051da7ca9d2cfca2b340b64aab"
+    },
+    {
+      "id": "06-functions",
+      "filename": "第六单元 功能意念.pdf",
+      "pdf_pages": 22,
+      "sha256": "8003dedd269330461ea0445fb718fe95c19c19b5c637bf98064d6512a0f61517"
+    },
+    {
+      "id": "07-themes",
+      "filename": "第七单元 主题语境.pdf",
+      "pdf_pages": 23,
+      "sha256": "9f8ac831db805ba76217e3a72248d60b5a97482a37992f18bdee3f007cd778f2"
+    },
+    {
+      "id": "08-appendices-1-2-4",
+      "filename": "附录1、2、4.pdf",
+      "pdf_pages": 8,
+      "sha256": "196173d946d6b514634cdc0893a82a4f5f23daaf6c51d905a7f4dd0fe10f01cd"
+    },
+    {
+      "id": "09-vocabulary-appendix",
+      "filename": "附录3 词汇的学习内容与要求.pdf",
+      "pdf_pages": 125,
+      "sha256": "163892e04550513dc70b358e48dfdcf9de7b65a2cf8288274e3a6eef8c26dd63"
+    }
+  ],
+  "schema_version": 1,
+  "package_scope": "full reviewed transcription; source PDFs not bundled",
+  "attribution": "原教材及其引用作品的权利归原权利人；不是本项目原创或出版社电子版。"
+}

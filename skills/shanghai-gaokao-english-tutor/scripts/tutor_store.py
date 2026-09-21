@@ -12,11 +12,16 @@ import json
 import math
 import os
 import re
+import sys
 import tempfile
 from contextlib import contextmanager
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+if __name__ == '__main__':
+    # Works from a copied skill even under Python -I and an unrelated cwd.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 REGISTRY = Path.home() / 'Library/Application Support/shanghai-gaokao-english-tutor/profiles.json'
 DOMAINS = {'vocabulary', 'grammar', 'reading', 'cloze', 'summary', 'translation', 'writing', 'listening', 'speaking'}
@@ -188,6 +193,9 @@ def apply(state, command, payload, now=None):
         require(payload['attempt_id'] in state['attempts'], 'Unknown attempt')
         nonempty(payload['reason'], 'invalidation reason')
         state['invalidations'][event] = copy.deepcopy(payload) | {'at': now.isoformat()}
+    elif command.startswith('assessment-'):
+        from assessment import mutate
+        result.update(mutate(state, command, payload, now))
     else:
         raise ValueError('Unsupported mutation')
     state['revision'] += 1
@@ -197,6 +205,7 @@ def apply(state, command, payload, now=None):
 
 
 def context(state, on=None, focus=None):
+    from assessment import history
     tz = ZoneInfo(state['settings']['timezone'])
     today = date.fromisoformat(on) if on else datetime.now(tz).date()
     attempts = [a for a in active_attempts(state) if timestamp(a['occurred_at']).astimezone(tz).date() <= today]
@@ -240,11 +249,16 @@ def context(state, on=None, focus=None):
                        'open_errors': open_errors, 'next_step': latest['next_step'],
                        'timed_evidence': [a['attempt_id'] for a in successful if a['within_verified_limit']]})
     selected = [a for a in attempts if focus is None or a['focus'] == focus]
+    assessments = history(state, today.isoformat())
     return {'profile_id': state['profile_id'], 'revision': state['revision'], 'settings': state['settings'],
             'as_of': today.isoformat(), 'training_only': True,
             'skills': [s for s in skills if focus is None or s['focus'] == focus],
             'recent_attempts': selected[-8:], 'active_attempt_count': len(attempts),
             'session_count': len({a['session_id'] for a in attempts}),
+            'assessments': assessments[-8:],
+            'assessment_index': [{'record_id': r['record_id'], 'title': r['material']['title'],
+                                  'occurred_at': r['occurred_at'], 'supersedes': r.get('supersedes')}
+                                 for r in assessments],
             'exposed_items': [{'item_id': p['item_id'], 'fingerprint': p['fingerprint']} for p in state['presentations'].values()]}
 
 
@@ -262,6 +276,33 @@ def view_content(state):
                   f"{esc(a['focus'])} · {a['result']} · support={a['support']} · {a['modality']}", '',
                   '证据：' + esc(a['evidence']), '', '判断依据：' + esc(a['reason']), '',
                   '下一步：' + esc(a['next_step']), '']
+    lines += ['', '## 整卷／分项评估', '',
+              '以下分数属于各自同一次作答；未知项不是零。AI 估分区间不是官方成绩或达标概率。', '']
+    from assessment import LABELS, history
+    basis_names = {'key_checked': '复核答案逐题核分', 'rubric_estimate': '教练暂估区间',
+                   'verified_report': '已核对原成绩', 'user_report': '用户报告，未核原卷', 'sum': '完整分项加总', 'unknown': '未知'}
+    status_names = {'no_target': '未设置分数目标', 'below_even_with_unknowns_full': '本次分数上界仍未到目标（缺项按可能满分计）',
+                    'unknown_or_interval_crosses_target': '缺项或评分范围尚不能确认达到目标',
+                    'observed_score_range_meets_target_not_prediction': '本次所记分数范围达到目标，不是未来考试预测'}
+    for assessment in history(state, data['as_of']):
+        mode_name = '现场作答' if assessment['mode'] == 'coach_run' else '历史导入，不是本教练现场冷测'
+        lines += [f"### {assessment['record_id']} · {esc(assessment['material']['title'])}", '',
+                  f"{esc(assessment['occurred_at'])} · {mode_name}", '',
+                  '| 分项 | 已记录/完整分项合计 | 满分 | 依据 |', '| --- | --- | ---: | --- |']
+        for key, value in assessment['scores'].items():
+            score = value['score']
+            shown = '未知' if score is None else str(score[0]) if score[0] == score[1] else f'{score[0]}–{score[1]}'
+            lines.append(f"| {LABELS[key]} | {shown} | {value['max']} | {basis_names[value['basis']]} |")
+        lines += ['', '总分可行边界（缺项仅作极限计算）：' + esc(assessment['scores']['total']['possible_bounds']), '',
+                  '当前目标：' + esc(assessment['target'] if assessment['target'] is not None else '未设置') + '；判断：' + status_names[assessment['target_status']], '',
+                  '材料门槛：仅限有证据的分项诊断' +
+                  ('；文件未匹配已验收版本，必须重新核对。' if assessment['material_review'].get('requires_fresh_acceptance') else '；实际文件身份已匹配，仍非官方认证。'), '',
+                  '材料问题：' + esc('；'.join(assessment['material_review']['issues'])), '',
+                  '现场作答条件（不等于已测完整块/材料合格）：' + esc('；'.join(LABELS[k] + ('：符合所记录条件' if v else '：未取得现场合格条件证据') for k, v in assessment['cold_conditions'].items()) or '未知'), '',
+                  '分项解释：' + esc('；'.join(LABELS[k] + ': ' + v['interpretation'] for k, v in assessment['section_evidence'].items())), '',
+                  '限制：' + esc('；'.join(assessment['limitations'])), '', '下一步：' + esc(assessment['next_step']), '']
+        if assessment['supersedes']:
+            lines += ['评分更正，替代 ' + esc(assessment['supersedes']) + '：' + esc(assessment['correction_reason']) + '；不是新的学习进步。', '']
     return '\n'.join(lines).rstrip() + '\n'
 
 
@@ -317,6 +358,8 @@ def load_state(root):
     require(type(state.get('revision')) is int and state['revision'] > 0, 'Invalid revision')
     for field in ('items', 'presentations', 'attempts', 'invalidations', 'requests'):
         require(isinstance(state.get(field), dict), f'Corrupt {field}')
+    for field in ('assessment_starts', 'assessments', 'assessment_voids'):
+        require(field not in state or isinstance(state[field], dict), f'Corrupt {field}')
     return state
 
 
@@ -361,7 +404,17 @@ def main():
     ctx.add_argument('--on')
     ctx.add_argument('--focus')
     sub.add_parser('rebuild')
-    for command in ('configure', 'prepare', 'present', 'record', 'invalidate'):
+    sub.add_parser('materials')
+    for command in ('assessment-show', 'assessment-report'):
+        sub.add_parser(command).add_argument('--record', required=True)
+    comparison = sub.add_parser('assessment-compare')
+    comparison.add_argument('--first', required=True)
+    comparison.add_argument('--second', required=True)
+    scenario = sub.add_parser('assessment-scenario')
+    scenario.add_argument('--record', required=True)
+    scenario.add_argument('--input', type=Path, required=True)
+    for command in ('configure', 'prepare', 'present', 'record', 'invalidate', 'assessment-start',
+                    'assessment-record', 'assessment-import', 'assessment-correct', 'assessment-void'):
         sub.add_parser(command).add_argument('--input', type=Path, required=True)
     args = parser.parse_args()
     try:
@@ -370,7 +423,10 @@ def main():
         # User-selected directory aliases (including macOS /tmp) are canonicalized once.
         # Files and internal managed-store paths still reject symlinks.
         reg = raw_registry.parent.resolve() / raw_registry.name
-        if args.command == 'profiles':
+        if args.command == 'materials':
+            from assessment import catalogue
+            output = catalogue()
+        elif args.command == 'profiles':
             output = registry_data(reg)
         elif args.command == 'init':
             profile = identifier(args.profile)
@@ -413,6 +469,19 @@ def main():
                     output = context(state, args.on, args.focus)
                 elif args.command == 'rebuild':
                     output = persist(root, state)
+                elif args.command in {'assessment-show', 'assessment-report', 'assessment-compare', 'assessment-scenario'}:
+                    from assessment import active, report, compare, scenario
+                    records = active(state)
+                    if args.command == 'assessment-compare':
+                        output = compare(records[args.first], records[args.second])
+                    elif args.command == 'assessment-show':
+                        output = state.get('assessments', {})[args.record] | {'active': args.record in records,
+                            'withdrawals': [v for v in state.get('assessment_voids', {}).values() if v['record_id'] == args.record],
+                            'superseded_by': [r['record_id'] for r in state.get('assessments', {}).values() if r.get('supersedes') == args.record]}
+                    elif args.command == 'assessment-report':
+                        output = report(records[args.record], state['settings']['target_score'])
+                    else:
+                        output = scenario(records[args.record], json.loads(args.input.read_text()), state['settings']['target_score'])
                 else:
                     payload = json.loads(args.input.read_text())
                     state, output = apply(state, args.command, payload)

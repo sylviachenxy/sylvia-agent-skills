@@ -171,6 +171,74 @@ class PortableInstallTests(unittest.TestCase):
             # The independent, no-registry lookup still resolves this installed package.
             self.assertEqual(self.lookup('--word', 'charge')['corpus_selection'], 'bundled')
 
+    def test_assessment_catalogue_portable_and_metadata_only(self):
+        proc = self.cli('materials', script='tutor_store.py')
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        data = json.loads(proc.stdout)
+        self.assertEqual(len(data['materials']), 22)
+        self.assertEqual(len({r['id'] for r in data['materials']}), 22)
+        self.assertEqual(len({r['district'] for r in data['materials']}), 15)
+        self.assertEqual(sum(r['key_comparison_count'] for r in data['materials']), 850)
+        self.assertEqual(sum(len(r['preexposed_key_items']) for r in data['materials']), 5)
+        for row in data['materials']:
+            self.assertRegex(row['question_sha256'], r'^[a-f0-9]{64}$')
+            self.assertTrue(row['source_url'].startswith('https://'))
+            self.assertEqual(len(row['section_gates']), 10)
+            self.assertTrue(row['issues'])
+            self.assertNotIn('answers_1_10', row)
+            self.assertNotIn('reference_key_11_50', row)
+            self.assertNotIn('local_file', row)
+            self.assertNotIn('student', row)
+        self.assertFalse(self.registry.exists())
+
+    def test_assessment_import_correction_and_old_version_in_fresh_processes(self):
+        with tempfile.TemporaryDirectory(prefix='sh-assessment-cli-') as scratch:
+            vault = Path(scratch).resolve()
+            registry = vault / 'registry.json'
+            args = ['--registry', str(registry), '--profile', 'synthetic']
+            proc = self.cli(*args, 'init', '--vault', str(vault), script='tutor_store.py')
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            source = vault / 'private-input.json'
+            score = {'range': [104, 104], 'basis': 'user_report', 'source': 'Synthetic test',
+                     'rubric': 'Synthetic denominator115', 'items': []}
+            payload = {'event_id': 'IMPORT-SYNTHETIC', 'material': {'id': 'SYNTHETIC-HISTORY',
+                'title': 'Synthetic history, not a learner', 'kind': 'unknown', 'locator': 'Synthetic test',
+                'sha256': None, 'year': None, 'session': 'unknown', 'normalization': 'Synthetic 115 reported grade'},
+                'protocol': {'baseline_status': 'provisional', 'baseline_source': 'Synthetic only',
+                             'checked_on': '2020-01-01', 'scoring_plan': 'No original paper: report only'},
+                'occurred_at': '2020-01-01T12:00:00+08:00',
+                'conditions': {'written': {'support': 'unknown', 'timing': 'unknown',
+                    'elapsed_seconds': None, 'audio': 'none', 'evidence': 'Synthetic unknown conditions'}},
+                'scores': {'written': score}, 'limitations': ['Synthetic test, not student data'],
+                'next_step': 'Collect actual evidence', 'provenance': 'Synthetic fixture'}
+            source.write_text(json.dumps(payload))
+            proc = self.cli(*args, 'assessment-import', '--input', str(source), script='tutor_store.py')
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            self.assertTrue(json.loads(proc.stdout)['views_verified'])
+            proc = self.cli(*args, 'context', script='tutor_store.py')
+            self.assertEqual(json.loads(proc.stdout)['assessments'][0]['scores']['total']['possible_bounds'], [104, 139])
+            score['range'] = [108, 108]
+            source.write_text(json.dumps({'event_id': 'CORRECT-SYNTHETIC', 'record_id': 'IMPORT-SYNTHETIC',
+                'reason': 'Synthetic transcription correction', 'scores': {'written': score},
+                'limitations': ['Still a synthetic fixture'], 'next_step': 'Collect actual evidence'}))
+            proc = self.cli(*args, 'assessment-correct', '--input', str(source), script='tutor_store.py')
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            proc = self.cli(*args, 'assessment-show', '--record', 'IMPORT-SYNTHETIC', script='tutor_store.py')
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            old = json.loads(proc.stdout)
+            self.assertFalse(old['active'])
+            self.assertEqual(old['superseded_by'], ['CORRECT-SYNTHETIC'])
+            proc = self.cli(*args, 'assessment-report', '--record', 'CORRECT-SYNTHETIC', script='tutor_store.py')
+            new = json.loads(proc.stdout)
+            self.assertEqual(new['scores']['total']['possible_bounds'], [108, 143])
+            self.assertEqual(new['supersedes'], 'IMPORT-SYNTHETIC')
+            proc = self.cli(*args, 'context', script='tutor_store.py')
+            data = json.loads(proc.stdout)
+            self.assertEqual(len(data['assessments']), 1)
+            self.assertEqual(data['active_attempt_count'], 0)
+            view = vault / 'Learning/Shanghai-Gaokao-English/synthetic/Practice.md'
+            self.assertIn('不是新的学习进步', view.read_text())
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -9,7 +9,7 @@ Sylvia 的个人 Agent Skills 仓库。仓库遵循 [Agent Skills 开放规范](
 | [`deep-reading-coach`](skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
 | [`cet4-speaking-partner`](skills/cet4-speaking-partner/) | 以 CET-SET4 官方“优秀”等级为锚，进行无提示语音诊断、条件满足时的严格模考、互动训练、迁移复测和证据复盘。 |
 | [`ielts-speaking-coach`](skills/ielts-speaking-coach/) | 以雅思口语 8+ 为目标，进行日常专项训练、无提示模考、间隔迁移复测，在 Obsidian 持久管理偏好与证据，并衔接目标、日程和周复盘。 |
-| [`shanghai-gaokao-english-tutor`](skills/shanghai-gaokao-english-tutor/) | 上海普通高考英语一对一诊断、分级辅导与迁移复测，在 Obsidian 持久记录学情；随附完整教材校对转写、3,319 行分学段词表、国家课程基线与来源疑点，无需另配资料目录。 |
+| [`shanghai-gaokao-english-tutor`](skills/shanghai-gaokao-english-tutor/) | 上海英语一对一教学、115＋25＋10分项评估、140分条件差距分析与迁移复测，Obsidian持久保存学情；随附完整教材、3,319行词表、国家基线及22份题卷的分项验收目录（不附网上整卷或听说音频）。 |
 | [`goal-planner`](skills/goal-planner/) | 把模糊意图建立成有证据的 SMART Goal，以 Obsidian 保存完整记录，并通过 EventKit 投影到 Apple Reminders 与 Apple Calendar、由 iCloud 同步、持续 check-in。 |
 | [`personal-scheduler`](skills/personal-scheduler/) | 使用随附的 macOS EventKit executor，在 Apple Reminders 与 Apple Calendar 中捕捉、查看、编排和调整个人学习与生活日程。 |
 | [`weekly-review`](skills/weekly-review/) | 从 Obsidian、Apple 原生工具和用户批准的 Mac 工作痕迹中提炼证据，经用户确认后形成个人周复盘并写入 Obsidian。 |

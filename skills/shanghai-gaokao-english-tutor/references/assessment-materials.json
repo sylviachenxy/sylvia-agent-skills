@@ -1,0 +1,1030 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-21",
+  "working_blueprint": "written115+listening25+legacy_listening_speaking10",
+  "summary": {
+    "papers": 22,
+    "districts": 15,
+    "objective_items_read": 1100,
+    "papers_with_reference_key": 17,
+    "reference_key_items_compared": 850,
+    "preexposed_key_items": 5,
+    "no_key_teacher_only_items": 250,
+    "certified_150_packages": 0,
+    "review_method": "全1100题审读；850题对照公开key，其中845先冻结再开key、5预曝光；250仅教师自解。双词位后置裁决已修订，不倒改原始候选。",
+    "question_completeness": "22份为连续题卷候选；HP26一模Q39收集原图存在选项残缺疑点，不再笼统认证22份全部题项完整。"
+  },
+  "privacy": "仅来源、身份与验收元数据；不包含整卷原文、教师答案或学习者资料。",
+  "materials": [
+    {
+      "id": "M25JD1",
+      "title": "2025届嘉定一模",
+      "year": 2025,
+      "district": "嘉定",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189033.html",
+      "question_sha256": "f8a7589f68d382394495cef59beae05fdb521a130379869eb863df860e259f61",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Qn = 原Q(n+20)，不含听力Q1–20"
+      },
+      "key_comparison_count": 0,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "tutor_review_required",
+        "vocabulary": "tutor_review_required",
+        "cloze": "tutor_review_required",
+        "reading_abc": "quarantined",
+        "reading_gap": "tutor_review_required",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "reading_abc": [
+          "Q41"
+        ]
+      },
+      "issues": [
+        "原140分/120分钟含听力；这里只审非听力115分，原Q21–76映射规范Q1–56。",
+        "原Q54干扰项重复，首选仍有搭配依据，只记区分性限制；原Q61唯一性存疑隔离。无参考答案和音频。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25JA1",
+      "title": "2025届静安一模",
+      "year": 2025,
+      "district": "静安",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189392.html",
+      "question_sha256": "7d2d58f2f9e5ee7ed82b534fa280bf4e7efc46795b936e02cda116714eea04b5",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://www.51jiaoxi.com/doc-16881745.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "conditional",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "答案HTML系统性缺字，语法和主观答案须回原题重建。",
+        "Q6开放语法替代未裁定；不能只接受参考key列出的形式。作文任务分支不能漏。",
+        "概要例文遗漏适用限制且关系指代不良，不当高分锚点。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25CM1",
+      "title": "2025届崇明一模",
+      "year": 2025,
+      "district": "崇明",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189389.html",
+      "question_sha256": "0758fa741c2a490c93542a2262f54a2f34420078cc5985b918b5b4af1fd6c588",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://zy.21cnjy.com/21982080"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [
+        "Q43",
+        "Q44",
+        "Q45",
+        "Q46"
+      ],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "参考评分文字沿用旧号，必须映射；概要5+5、作文10+10+5有条件限制，不推广到别卷。",
+        "Q43–46在候选冻结前已意外看到key，计入审查不计答案盲审。",
+        "Q44段落号误写，但独有短语可定位；作文为视频介绍，注释误写邮件，不应强制信件格式。概要范文不作满分锚点。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25XH1",
+      "title": "2025届徐汇一模",
+      "year": 2025,
+      "district": "徐汇",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189110.html",
+      "question_sha256": "05f53d7e81d2174a29d679b80eb6ea630810238d91872f3276a9930e46db6eda",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://www.51jiaoxi.com/doc-16881728.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [
+        "Q40"
+      ],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "答案HTML系统性缺字；恢复原题后对照，不能直接展示损坏范文。",
+        "Q40在候选冻结前意外看到key，不计盲审；地图已看原图。",
+        "概要例文有非缺字可解释的语法错误，不当满分语言范例。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25YP1",
+      "title": "2025届杨浦一模",
+      "year": 2025,
+      "district": "杨浦",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189395.html",
+      "question_sha256": "b35133093a14ef4168361ab2805396f0d50640ee2905d23e5e09e6d02f69cfec",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 0,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "tutor_review_required",
+        "vocabulary": "quarantined",
+        "cloze": "tutor_review_required",
+        "reading_abc": "quarantined",
+        "reading_gap": "tutor_review_required",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "vocabulary": [
+          "Q11",
+          "Q12",
+          "Q13",
+          "Q14",
+          "Q15",
+          "Q16",
+          "Q17",
+          "Q18",
+          "Q19",
+          "Q20"
+        ],
+        "reading_abc": [
+          "Q41"
+        ]
+      },
+      "issues": [
+        "Q11–20词库带手写词性提示，不能无提示冷测。",
+        "Q41选项概括强于原文，先隔离；全卷暂无配套key。",
+        "Q10原图为三个词位；教师最初漏看，后置修正为三词连接结构，仍无外部key。作文三柱不是互斥分布，不能臆造缺少的百分比。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25JS1",
+      "title": "2025届金山一模",
+      "year": 2025,
+      "district": "金山",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189079.html",
+      "question_sha256": "1ac861378a05a4f30a2018bab33096394bd08f4c99c893be93cfdc528d1da77e",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://zy.21cnjy.com/21961667"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "quarantined",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "quarantined",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "grammar": [
+          "Q9"
+        ],
+        "reading_abc": [
+          "Q46"
+        ]
+      },
+      "issues": [
+        "Q9教师候选与key分歧未裁定。Q10原图是三个独立词位，多词key符合槽位；撤回初次按每题一词的误判，保留版式。",
+        "Q41依赖now日期，题卷封面只给月份；参考答案抬头2024.12.11可用于明确日期锚定后施测。",
+        "Q46全文意图与key有可辩护竞争，隔离；翻译key编号51–54应对应题52–55。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25CN1",
+      "title": "2025届长宁一模",
+      "year": 2025,
+      "district": "长宁",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189129.html",
+      "question_sha256": "ed761e62bbd43c7852e5db429ffbda050ec014ee1d9ebec90be10795c63c38c7",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://www.51jiaoxi.com/doc-16881740.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "quarantined",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "reading_abc": [
+          "Q45"
+        ]
+      },
+      "issues": [
+        "答案HTML缺字；Q45教师候选与key有竞争，暂不精确核分。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25HP1",
+      "title": "2025届黄浦一模",
+      "year": 2025,
+      "district": "黄浦",
+      "source_url": "https://www.zizzs.com/gk/shitiku/188229.html",
+      "question_sha256": "4259ff234992cbf4cf48c0160a514006342f64054cf1bc223025710c39984496",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://www.zizzs.com/gk/shitiku/188229.html",
+        "https://www.51jiaoxi.com/doc-16881748.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "conditional",
+        "vocabulary": "key_crosschecked",
+        "cloze": "quarantined",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "cloze": [
+          "Q35"
+        ]
+      },
+      "issues": [
+        "题卷含8页试题和2页答题纸；原答案PDF只到Q35，补充HTML到Q55但缺字。",
+        "Q10原图和答题纸明确三词位，每物理空一词可解释，撤回必然冲突判断；Q1应允许人工判断主动/被动替代。Q35仍有语义竞争。Q23前测误读less已纠正。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25SJ1",
+      "title": "2025届松江一模",
+      "year": 2025,
+      "district": "松江",
+      "source_url": "https://www.zizzs.com/gk/shitiku/188243.html",
+      "question_sha256": "601041b049314442ae5ba1bb63715a403c2ba96e34f8f011dd3e7025211dcb95",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://www.zizzs.com/gk/shitiku/188243.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "原2页答案PDF有具体概要内容档次及翻译分段；作文略，无实评分锚卷。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25BS1",
+      "title": "2025届宝山一模",
+      "year": 2025,
+      "district": "宝山",
+      "source_url": "https://www.zizzs.com/gk/shitiku/189385.html",
+      "question_sha256": "7a7d3a44ae470b4a756fc2ed4c7a63309c8fb6d3f41d8a4b19c974ccaa9ad7fb",
+      "file_identity": "original_pdf",
+      "answer_source_urls": [
+        "https://zy.21cnjy.com/21961696"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "conditional",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "quarantined",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "reading_abc": [
+          "Q44"
+        ]
+      },
+      "issues": [
+        "PDF物理p7/p8重复，是原纸页7+8拼图，须避免重复展示或计题。",
+        "Q2/Q7语法候选与key差异有合理替代空间；Q44阅读论据竞争，隔离。",
+        "阅读说明写four passages，实际A/B/C三篇、题号连续；需澄清而非补造D篇。概要与翻译范例存在语言/意义问题。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M25FX1",
+      "title": "2025届奉贤一模",
+      "year": 2025,
+      "district": "奉贤",
+      "source_url": "https://www.zizzs.com/gk/shitiku/188234.html",
+      "question_sha256": "669b2bd72a4dde5824bd6ef6f5c82c35eea4a8038448f7e11fd6786a0ad7e594",
+      "file_identity": "original_pdf_with_teacher_key_last_page",
+      "answer_source_urls": [
+        "https://www.zizzs.com/gk/shitiku/188234.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "原PDF最后一页为教师key；学生只能看到前10页题目。",
+        "图表阅读已目视；翻译有分段给分，作文无量表或实评分锚卷。",
+        "Q53参考译文弱化原句绝对程度，允许更忠实替代，不逐字匹配。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26PD2",
+      "title": "2026届浦东二模",
+      "year": 2026,
+      "district": "浦东",
+      "source_url": "https://sjds.net/617308.html",
+      "question_sha256": "041b03777c96da344aefc403110d2baffd7757caf999feb9fdcf84df2b4d31b7",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/617308.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "quarantined",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "summary": [
+          "Q51"
+        ]
+      },
+      "issues": [
+        "Q6非key语法变体须另审，不因候选集合有交集而全部认可。",
+        "Q51评分表与要点说明的数量门槛冲突，范文混淆脂肪类型与功能；停用该概要数值细则。",
+        "翻译有意义单元评分；作文二选一，均无量表。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26HP2",
+      "title": "2026届黄浦二模",
+      "year": 2026,
+      "district": "黄浦",
+      "source_url": "https://sjds.net/643957.html",
+      "question_sha256": "f29997596c3b8052b9fedb1655d6c420c35c21ac72ac901e2f583f7254b3b7dd",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/643957.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "文字、脑龄图像及Q46图形选项需一并展示；听力另有题/稿/key但无验收音频。",
+        "Q54参考措辞未精确保留脚踏实地含义；需按意义评分。区身份来自转载页，封面没有区名，不冒充官方原卷认证。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26MH2",
+      "title": "2026届闵行二模",
+      "year": 2026,
+      "district": "闵行",
+      "source_url": "https://www.sjds.net/a/475079.html",
+      "question_sha256": "73decc1a0477ba22e3ecf1e1f062638b94b2024b160c492c3485a6fc9cf70c8a",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://www.sjds.net/a/475079.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "quarantined",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "quarantined",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "reading_abc": [
+          "Q41"
+        ],
+        "translation": [
+          "Q55"
+        ]
+      },
+      "issues": [
+        "Q41招聘最佳人选的资格权重不清，虽教师/key一致仍隔离唯一答案核分。",
+        "Q55译文不满足题干指定词；不可照抄为金标准。作文有样文但无实评分锚点。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26YP2",
+      "title": "2026届杨浦二模",
+      "year": 2026,
+      "district": "杨浦",
+      "source_url": "https://sjds.net/643763.html",
+      "question_sha256": "8a5b65d5325f6ccc37a385a554f9a6536c035765a76b6d4d8bb67c29c0f33837",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/643763.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "conditional",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "Q4/Q7各有两个独立物理词位，与两词key相符；保留双词位和必要说明，不认定必然冲突。",
+        "阅读广告、作文活动表不可省；另有听力稿但无音频。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26HK2",
+      "title": "2026届虹口二模",
+      "year": 2026,
+      "district": "虹口",
+      "source_url": "https://sjds.net/643755.html",
+      "question_sha256": "196e6711ddbcc86b89c79e0e132e2c781dc9d8724803cc83b4503695b1047e4d",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/643755.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "conditional",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "卷首没有明确115/105，不补造。Q3是两个物理词位；两词key符合版式，教师初答漏看词位，撤回硬隔离。",
+        "概要仅内容A/B/C档，语言及低档规则不足；不能凑出精确10分。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26SJ2",
+      "title": "2026届松江二模",
+      "year": 2026,
+      "district": "松江",
+      "source_url": "https://www.sjds.net/a/475246.html",
+      "question_sha256": "28d604742940638ad9415992ee55467f149f00624cc8650967fe228170c2b945",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://www.sjds.net/a/475246.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "变星图及四个图形选项已目视审读，不用纯文字替代。",
+        "翻译有分段但存在词形/附加释义/衔接问题，需按意义复核；范文没有实际评分。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26CN2",
+      "title": "2026届长宁二模",
+      "year": 2026,
+      "district": "长宁",
+      "source_url": "https://sjds.net/643768.html",
+      "question_sha256": "1768915a2352d6ac4c4aff1aa382b5f1d1a8091fea9e4c7c1d7172a033597b4b",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/643768.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "key_crosschecked",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "key_crosschecked",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "戒酒阶段图必须保留；概要范文的指代/教育效果表述有问题，不作金标准。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26PT2",
+      "title": "2026届普陀二模",
+      "year": 2026,
+      "district": "普陀",
+      "source_url": "https://sjds.net/643764.html",
+      "question_sha256": "0cdd3e068797e5485da072e4c70d99f630e7f99e9da4e19f5997bb6ed3f7d43b",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [
+        "https://sjds.net/643764.html"
+      ],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 50,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "quarantined",
+        "vocabulary": "key_crosschecked",
+        "cloze": "key_crosschecked",
+        "reading_abc": "quarantined",
+        "reading_gap": "key_crosschecked",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "grammar": [
+          "Q2",
+          "Q4",
+          "Q10"
+        ],
+        "reading_abc": [
+          "Q41"
+        ]
+      },
+      "issues": [
+        "Q2原句搭配异常；Q4/Q10候选与key分歧未裁定；Q41小标题覆盖范围存在竞争。",
+        "不把教师分歧直接定性为试卷印错；先隔离核分。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26HP1",
+      "title": "2026届黄浦一模",
+      "year": 2026,
+      "district": "黄浦",
+      "source_url": "https://www.zizzs.com/gk/shitiku/212838.html",
+      "question_sha256": "5b972d7c376ecb2f610c677c4acfbb80ea4eeddb0fd3176c583d5d45e466bbb7",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 0,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "tutor_review_required",
+        "vocabulary": "tutor_review_required",
+        "cloze": "tutor_review_required",
+        "reading_abc": "quarantined",
+        "reading_gap": "tutor_review_required",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {
+        "reading_abc": [
+          "Q39"
+        ]
+      },
+      "issues": [
+        "图像页名起0003不代表缺前两页；实际纸页1–8连续。",
+        "Q39 C选项在收集到的原图中结束于pursue，所追求对象不明确，疑似残缺；不能确认最初出卷文件是否如此，先隔离，不凭OCR补猜。暂无key。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26FX2",
+      "title": "2026届奉贤二模",
+      "year": 2026,
+      "district": "奉贤",
+      "source_url": "https://www.sjds.net/a/472698.html",
+      "question_sha256": "f7fbae88b775bc124d1bd659b59e066cc2a2feb6fce06bbc8869a67f38027100",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 0,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "tutor_review_required",
+        "vocabulary": "tutor_review_required",
+        "cloze": "tutor_review_required",
+        "reading_abc": "tutor_review_required",
+        "reading_gap": "tutor_review_required",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "无参考key，教师候选仅作条件性训练依据；购物小票和退换政策必须保留。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    },
+    {
+      "id": "M26JA2",
+      "title": "2026届静安二模",
+      "year": 2026,
+      "district": "静安",
+      "source_url": "https://www.sjds.net/a/478509.html",
+      "question_sha256": "ce684beb28ce174f6533dec1980b58bbbd9d09d0b8108b36696728288fb6c2b0",
+      "file_identity": "locally_derived_questions_only_pdf",
+      "answer_source_urls": [],
+      "status": "partial_diagnostic_only",
+      "reviewed_scope": {
+        "objective": "规范Q1–50全覆盖（1100题总池的一卷）",
+        "subjective": "概要Q51、翻译Q52–55、作文Q56题面及现有评分材料",
+        "unreviewed_objective": [],
+        "question_numbering": "规范Q号同原题；未编号作文按Q56定位"
+      },
+      "key_comparison_count": 0,
+      "preexposed_key_items": [],
+      "section_gates": {
+        "grammar": "tutor_review_required",
+        "vocabulary": "tutor_review_required",
+        "cloze": "tutor_review_required",
+        "reading_abc": "tutor_review_required",
+        "reading_gap": "tutor_review_required",
+        "summary": "rubric_estimate_only",
+        "translation": "rubric_estimate_only",
+        "writing": "rubric_estimate_only",
+        "listening": "unavailable",
+        "oral": "unavailable"
+      },
+      "blocked_items": {},
+      "issues": [
+        "无参考key；Q5是两个物理词位，两词连接词与版式相符，撤回硬隔离；仍需教师自审，不称已对照外部key。"
+      ],
+      "use_limits": [
+        "公开第三方转载，不是教研部门认证最终版。评分前须取得实际原题/key并冻结判断。",
+        "主观评分仅在有明确可辩护量表时给暂估区间；无依据只定性反馈。没有真实学生实评分锚卷。",
+        "缺验收听说配套；不可冒称完整150分严格模考。无卷间等值或成绩预测常模。"
+      ]
+    }
+  ]
+}

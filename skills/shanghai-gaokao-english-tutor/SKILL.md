@@ -1,6 +1,6 @@
 ---
 name: shanghai-gaokao-english-tutor
-description: 上海普通高考英语一对一教学：按考试年份与课程来源诊断词汇、语法、阅读、完形、概要、翻译、写作和听说，进行分级提示、独立迁移复测，并在 Obsidian 持久保存学情与复习队列。用于“上海高考英语老师”“诊断我的英语薄弱点”“讲这道上海英语题”“练概要写作／翻译”“继续英语复习”；不替代 CET、雅思专项教练，也不把教学书中的所有活动当作当年高考试题。
+description: 上海普通高考英语一对一教学与分数目标诊断：按年份、真实作答和评分来源评估“离140分还有多少”，记录115＋25＋10分项与估分区间，进行分级提示、独立迁移复测，在Obsidian持久保存学情。用于“上海高考英语老师”“诊断薄弱点”“比较模考”“阅读全对够140吗”“练概要／翻译”“继续英语复习”；不替代CET、雅思教练，不凭微题预测高考总分。
 license: All rights reserved
 ---
 
@@ -17,6 +17,7 @@ license: All rights reserved
 - 初始诊断／阶段复测：读 [教学闭环](references/teaching-protocol.md) 和 [题型协议与训练 rubric](references/modes-and-rubrics.md)，获取真实未提示样本，不按自评分或学校身份猜水平。
 - 课程范围／词义分级：读 [课程地图](references/curriculum-map.md)；默认查询本 skill 随附并经哈希检查的完整教材和词表，不需另找资料目录或建档，不把 OCR 底稿当事实源。
 - 考试结构／正式模考／分数目标：先读 [年份基线](references/exam-baseline.md)，核验目标届别和场次。证据不够时继续普通训练，明确降级，不编造正式规则。
+- 冲 140／整卷诊断／比较模考／“某项全对就够吗”：读 [评估协议](references/assessment-protocol.md)、[140 分研究](references/target-140-research.md)；选卷读 [全量材料验收](references/material-acceptance.md) 与 [验收目录](references/assessment-materials.json)。需要保存或计算时读 [评估记录契约](references/assessment-contract.md)。分项预算不是官方门槛或概率模型。
 - 目标、日程、周报联动：按 [工作流接线](references/integrations.md) 交给现有 owner；本 skill 不直接改 Calendar / Reminders。
 
 所有脚本路径以本 SKILL.md 所在目录为 `<skill-root>`，不依赖当前工作目录。各 reference 都由此入口直接可达。
@@ -64,17 +65,28 @@ license: All rights reserved
 - 没有可听音频时只做文本理解、表达规划等降级训练；不能报发音、语调、真实听力分数或严格听说模考完成。
 - 训练 rubric 与官方评分分开。不得从几道原创题推算高考 150 分；用户成绩标记为用户报告，缺失的分项保留未知。
 
+## 分数诊断的额外闭环
+
+1. 从已有原卷／成绩单或实际未见题开始，不凭学校身份或聊天印象估分。先验规程、材料及学生曝光；22 份候选已经逐题审读，但必须按分项限制选用，目录不是可离线施测的题库。
+2. 新作答先 `assessment-start` 冻结来源／条件计划，再施测与 `assessment-record`；旧成绩、事后补评分用 `assessment-import`，不倒造冷测。保持题面与教师key分离。
+3. 用同一场次的笔试115、听力25、原听说10及八个笔试分项建立账。只有听说合计35时不臆造拆分；缺项不是零，不补默认满分。无音频不能给新听说得分，已有可靠成绩单可照实导入但不说本教练听过。
+4. 客观题逐项核查；主观题有可辩护赋分依据才给理由充分的区间，没有就定性。争议题隔离或保留全范围，不凑点估计或跨卷拼最优成绩。`cold_conditions` 仅证明所记录的作答条件，不证明题卷合格、答对或整卷已测完。
+5. `assessment-report` 输出证据与未知、差距和错因；`assessment-scenario` 只算“其他项维持本次”的条件情景；`assessment-compare` 保留卷间难度／评分者变化，不宣称正式考试成功概率。
+6. 给出1–3个有证据的训练重点和陌生材料上的复测条件，接回教学闭环。保存后回读，跨对话按 record_id 恢复；更正用新版本而非抹掉旧记录。没有真实学生 UAT，就不宣称已经验证提分或阅卷精度。
+
 ## 可用资源
 
 - [教学闭环](references/teaching-protocol.md)：诊断、提示、曝光、独立证据与掌握状态。
 - [题型协议与训练 rubric](references/modes-and-rubrics.md)：按正在练的题型读取相应段落。
 - [课程地图](references/curriculum-map.md)：课程定位、语法范围、原书资源与词表查询规则。
 - [年份基线](references/exam-baseline.md)：官方事实、未知项与严格模拟的条件。
+- [140 分试卷研究](references/target-140-research.md)、[来源质量清单](references/exam-source-catalog.md)、[扩充清单](references/exam-expansion.md)：近年任务、失分预算和检索证据，不是成绩常模。
+- [评估协议](references/assessment-protocol.md)、[评估契约](references/assessment-contract.md)：真实分项计分、条件计算、比较、更正与恢复；[全量验收](references/material-acceptance.md)、[机器目录](references/assessment-materials.json)：22份题卷逐题审查的准入与限制，不是整卷题库。
 - [持久化与设置](references/storage-and-setup.md)：首次建档、自然语言改偏好、数据契约、冲突恢复。
 - [工作流接线](references/integrations.md)：与 Goal、日程、周报和阅读教练的边界。
 - [来源与验证](references/provenance-and-validation.md)：设计致谢、first cut 验证和限制。
 - [原创起步题](assets/starter-items.json)：少量教师侧示例，不是标准化测验或真题库；按需只展示题干，已做过的不能重复计独立证据。
-- [学情脚本](scripts/tutor_store.py)、[语料查询脚本](scripts/curriculum_lookup.py)：不自动安装依赖、不联网、不调用 Apple App。
+- [学情与评估入口](scripts/tutor_store.py)、[评估计算模块](scripts/assessment.py)、[语料查询脚本](scripts/curriculum_lookup.py)：不自动安装依赖、不联网、不调用 Apple App。
 
 ## 使用例
 
@@ -93,6 +105,10 @@ license: All rights reserved
 “继续上次，不要重新问我的设置。”
 
 从 registry 定位档案，回读 context 和相关来源，只确认有冲突或已过时的信息；从未结错因或到期复测进入。
+
+“这次132，阅读加六选四24/30，全对能到140吗？”
+
+核实是同次总分与同口径分项后，记录来源并计算：其他项不变，补满阅读为138，不够140。继续查剩余失分与评分不确定性；不把“读懂文章”直接等同可追回全部6分。
 
 ## 本次训练完成标准
 

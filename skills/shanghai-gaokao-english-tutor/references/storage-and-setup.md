@@ -17,7 +17,7 @@
 ```text
 Mac 本机：Library/Application Support/shanghai-gaokao-english-tutor/profiles.json
 <Vault>/Learning/Shanghai-Gaokao-English/<profile-id>/
-├── state.json       # 唯一机器事实源：偏好历史、冻结题目、曝光、作答与更正记录
+├── state.json       # 唯一机器事实源：偏好、冻结题目、训练、整卷/分项评估与更正
 ├── Practice.md      # 可重建练习台；末尾“我的笔记”保留用户内容
 └── .lock            # 同机写入锁
 ```
@@ -55,7 +55,7 @@ init 的 input 是部分偏好对象，无 input 则用默认值。支持字段�
 
 corpus_path 默认 null，升级或移动 skill 后自动跟随新的安装位置。已有非 null 值是显式外部覆盖：查询时传给 curriculum_lookup 的 --corpus，不可静默忽略。用户同意恢复内置版时，正常 configure `{"corpus_path":null}`；保留设置历史。外部目录损坏时不自动回退，以免不知情地更换依据。
 
-baseline_note 只放简短用户报告／核验摘要及详细材料的本地定位；历史成绩和已有作答不伪造为本脚本的未见题冷测。必要的详细诊断 Markdown 在同一获准个人目录另存，由教练维护，不写回公共 skill。
+baseline_note 只放规则核验摘要与详细材料的定位，不用它代替结构化成绩。历史成绩和已有作答用 [评估记录契约](assessment-contract.md) 的 assessment-import；新测量先start后record，不伪造历史冷测。评分、来源、范围、错因进入同一state，Practice.md自动展示；原材料或补充报告可在同一获准个人目录保留，不写回公共skill。
 
 自然语言“以后每天只练 20 分钟，不存原话” → 先 show，使用当前 revision：
 
@@ -122,3 +122,7 @@ new_context=true 时 transfer_note 说明真正的变化；timer_verified=true �
 state 已保存但练习台写入失败时返回 saved=true、views_verified=false；修复具体问题后 rebuild 或重放原 event，不生成另一次作答。context 只读有效记录，返回最近八条、所有能力状态、到期建议与曝光信息；查询旧日期时按设置时区筛选作答。
 
 本脚本不是官方阅卷器，不识别语义近似题、不验证教练是否真的听到音频、不决定题目与 rubric 的学术正确性。它的价值是保证记录、幂等、条件约束和跨对话恢复，不是让不可靠判断变成可靠成绩。
+
+## 整卷与分项评估
+
+新增命令、字段与恢复规则见 [评估契约](assessment-contract.md)，教学流程见 [评估协议](assessment-protocol.md)。旧schema_version=1档案自动兼容可选评估字典；不重置设置、训练、曝光或笔记。context现在同时返回有效评估，training_only仍提醒既有微训练不是正式成绩；评估的mode、basis与限制另外判断，不把它们合成一次训练成就。导入历史成绩不是本周新增学习成果，更正分数不是提分。

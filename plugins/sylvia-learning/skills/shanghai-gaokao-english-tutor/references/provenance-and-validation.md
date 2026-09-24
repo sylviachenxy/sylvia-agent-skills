@@ -25,11 +25,11 @@
 从仓库根目录：
 
 ```bash
-python3 -m unittest discover -s skills/shanghai-gaokao-english-tutor/tests -v
-python3 skills/shanghai-gaokao-english-tutor/scripts/tutor_store.py --help
-python3 skills/shanghai-gaokao-english-tutor/scripts/curriculum_lookup.py --help
+python3 -m unittest discover -s plugins/sylvia-learning/skills/shanghai-gaokao-english-tutor/tests -v
+python3 plugins/sylvia-learning/skills/shanghai-gaokao-english-tutor/scripts/tutor_store.py --help
+python3 plugins/sylvia-learning/skills/shanghai-gaokao-english-tutor/scripts/curriculum_lookup.py --help
 gh skill publish --dry-run
-skills-ref validate skills/shanghai-gaokao-english-tutor
+skills-ref validate plugins/sylvia-learning/skills/shanghai-gaokao-english-tutor
 ```
 
 测试采用临时合成档案，不读写 Sylvia 的真实学习记录、Apple App 或账号。自动测试验证冻结、曝光、独立条件、复测、幂等、偏好版本、回读、受管区和路径安全；它不能证明教练判断永远正确。完整教材默认随安装使用，资料校验不需访问开发机或研究目录。

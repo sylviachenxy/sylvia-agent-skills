@@ -18,10 +18,10 @@
 从仓库根运行：
 
 ```bash
-python3 -m unittest discover -s skills/ielts-speaking-coach/tests -v
-python3 "/path/to/skill-creator/scripts/quick_validate.py" skills/ielts-speaking-coach
+python3 -m unittest discover -s plugins/sylvia-learning/skills/ielts-speaking-coach/tests -v
+python3 "/path/to/skill-creator/scripts/quick_validate.py" plugins/sylvia-learning/skills/ielts-speaking-coach
 gh skill publish --dry-run
-skills-ref validate skills/ielts-speaking-coach
+skills-ref validate plugins/sylvia-learning/skills/ielts-speaking-coach
 ```
 
 skills-ref 不在 PATH 时，使用 Agent Skills 项目当前官方文档的一次性调用。quick_validate 位置按实际 skill-creator 安装解析，不能假设它是运行时依赖。

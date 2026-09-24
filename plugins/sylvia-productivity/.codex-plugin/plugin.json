@@ -1,0 +1,25 @@
+{
+  "name": "sylvia-productivity",
+  "version": "0.1.0",
+  "description": "个人效率工具集：SMART 目标规划、日程安排、每周复盘与可配置晨间简报。",
+  "author": {
+    "name": "Sylvia",
+    "url": "https://github.com/sylviachenxy"
+  },
+  "homepage": "https://github.com/sylviachenxy/sylvia-agent-skills/tree/main/plugins/sylvia-productivity",
+  "repository": "https://github.com/sylviachenxy/sylvia-agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sylvia 个人效率",
+    "shortDescription": "目标、日程、周复盘与晨间简报",
+    "longDescription": "包含 goal-planner、personal-scheduler、weekly-review、morning-brief。以 Mac 为主要生产力环境，衔接 Obsidian、Apple Calendar、Reminders 和 Notes；个人配置、账号授权与手机快捷指令在首次使用时按需设置，安装不会自动读取账号或建立定时任务。",
+    "developerName": "Sylvia",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "用 $goal-planner 把我的学习意图建立成可追踪的 SMART Goal。",
+      "用 $personal-scheduler 安排下周的学习和生活日程。",
+      "用 $weekly-review 帮我回顾本周有证据的进展。"
+    ]
+  }
+}

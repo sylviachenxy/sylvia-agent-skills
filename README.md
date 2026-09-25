@@ -8,7 +8,7 @@ Marketplace：`sylvia-agent-skills`。添加 marketplace 只是添加目录，�
 
 | Plugin | 包含的 skills |
 | --- | --- |
-| [sylvia-learning · 学习辅导](plugins/sylvia-learning/README.md) | 深度阅读、CET-4 口语、雅思口语、上海高考英语。 |
+| [sylvia-learning · 学习辅导](plugins/sylvia-learning/README.md) | 深度阅读、CET-4 综合教练、雅思口语、上海高考英语。 |
 | [sylvia-productivity · 个人效率](plugins/sylvia-productivity/README.md) | 目标规划、个人日程、每周复盘、晨间简报。 |
 
 两个 plugin 可分别使用。学习训练需要目标／日程／周复盘联动时可再安装个人效率；不自动安装依赖或连接账号。
@@ -18,7 +18,7 @@ Marketplace：`sylvia-agent-skills`。添加 marketplace 只是添加目录，�
 | Skill | 功能 |
 | --- | --- |
 | [`deep-reading-coach`](plugins/sylvia-learning/skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
-| [`cet4-speaking-partner`](plugins/sylvia-learning/skills/cet4-speaking-partner/) | 以 CET-SET4 官方“优秀”等级为锚，进行无提示语音诊断、条件满足时的严格模考、互动训练、迁移复测和证据复盘。 |
+| [`cet4-english-coach`](plugins/sylvia-learning/skills/cet4-english-coach/) | CET-4 笔试与 CET-SET4 口语综合教学，基线诊断、分项证据、高分目标分析、迁移复测与 Obsidian 学情；不将正确率转换为710报道分。含来源／材料验收目录，不附网上整卷或音频。 |
 | [`ielts-speaking-coach`](plugins/sylvia-learning/skills/ielts-speaking-coach/) | 以雅思口语 8+ 为目标，进行日常专项训练、无提示模考、间隔迁移复测，在 Obsidian 持久管理偏好与证据，并衔接目标、日程和周复盘。 |
 | [`shanghai-gaokao-english-tutor`](plugins/sylvia-learning/skills/shanghai-gaokao-english-tutor/) | 上海英语一对一教学、115＋25＋10分项评估、140分条件差距分析与迁移复测，Obsidian持久保存学情；随附完整教材、3,319行词表、国家基线及22份题卷的分项验收目录（不附网上整卷或听说音频）。 |
 | [`goal-planner`](plugins/sylvia-productivity/skills/goal-planner/) | 把模糊意图建立成有证据的 SMART Goal，以 Obsidian 保存完整记录，并通过 EventKit 投影到 Apple Reminders 与 Apple Calendar、由 iCloud 同步、持续 check-in。 |
@@ -69,13 +69,15 @@ gh skill install sylviachenxy/sylvia-agent-skills deep-reading-coach \
   --scope user
 ```
 
-例如安装 CET-SET4 优秀口语伙伴 skill：
+例如安装四级综合教练（含原口语伙伴能力）：
 
 ```bash
-gh skill install sylviachenxy/sylvia-agent-skills cet4-speaking-partner \
+gh skill install sylviachenxy/sylvia-agent-skills cet4-english-coach \
   --agent codex \
   --scope user
 ```
+
+`sylvia-learning 0.2.0` 为 BREAKING：旧 `cet4-speaking-partner` 入口直接移除，无转发别名。更新发布源不会自动删除旧独立安装或个人回执；由用户确认迁移，见[退役说明](docs/lifecycle/skill-cet4-speaking-partner.md)。
 
 例如安装雅思口语教练（首次使用由 Codex 引导选择 Vault 并建立档案）：
 

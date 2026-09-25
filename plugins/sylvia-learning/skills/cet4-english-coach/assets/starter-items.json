@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "purpose": "Original teacher-side micro-tasks, NOT calibrated exam forms. Present only stem, never key/rubric first. Reuse is exposed practice.",
+  "items": [
+    {
+      "item_id": "CET4-R-CAUSE-01",
+      "domain": "reading",
+      "focus": "causality-and-scope",
+      "demand": "understand",
+      "stem": "A university library began opening an hour earlier in October. During that month, recorded morning visits rose by 18%. However, October was also the first month of a new term, and a nearby study room was closed for repairs. The librarian welcomed the increase but said that a longer comparison was needed before deciding whether to keep the new hours.\nWhich conclusion is best supported?\nA. Earlier opening alone caused the increase.\nB. The change coincided with more visits, but its individual effect is uncertain.\nC. Most students preferred the library to the study room.\nD. The library will return to its former hours.\nChoose an answer and explain why the strongest alternative is unsupported.",
+      "key": "B. Visits increased during the change, but term timing and the room closure are alternative explanations. A overclaims sole causation; C has no preference evidence; D turns a pending decision into a fact.",
+      "rubric": ["Selects B", "Explains an alternative cause and distinguishes association from causation"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-R-CAUSE-01", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 180
+    },
+    {
+      "item_id": "CET4-R-CAUSE-02",
+      "domain": "reading",
+      "focus": "causality-and-scope",
+      "demand": "understand",
+      "stem": "After a city introduced discounted bus passes for students, bus use among students increased. In the same period, fuel prices rose and several campus parking areas closed. A transport researcher said that these changes made it difficult to estimate how much of the increase was due to the passes.\nDoes the passage establish that discounted passes caused all of the increase? Give a reason grounded in the passage, not a general opinion about public transport.",
+      "key": "No. Other simultaneous changes could influence use; the passage explicitly leaves the size of the passes' contribution uncertain. It does not establish no effect either.",
+      "rubric": ["Rejects the claim of sole causation", "Names a competing explanation without claiming the passes had no effect"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-R-CAUSE-02", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 150
+    },
+    {
+      "item_id": "CET4-V-POS-01",
+      "domain": "vocabulary",
+      "focus": "word-class-in-context",
+      "demand": "understand",
+      "stem": "Choose from reliable / reliably / reliability for each blank, then explain the grammatical role.\n1. The team needed a ___ estimate of the cost.\n2. The old device no longer worked ___.\n3. The report questioned the ___ of the results.\nThis is a micro-task, not a full 15-option banked-cloze passage.",
+      "key": "1 reliable: adjective modifying estimate; 2 reliably: adverb modifying worked; 3 reliability: noun complement after the ... of. Meaning and sentence function both matter.",
+      "rubric": ["All three forms correct", "Explains function rather than only translating Chinese meanings"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-V-POS-01", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 120
+    },
+    {
+      "item_id": "CET4-G-MOD-01",
+      "domain": "grammar",
+      "focus": "modifier-attachment",
+      "demand": "produce",
+      "stem": "A learner writes: 'Using the online catalogue, the book was found in five minutes.' The intended meaning is that I used the catalogue and found the book. Revise the sentence and explain what was unclear.",
+      "key": "For example: Using the online catalogue, I found the book in five minutes. Or: I found the book in five minutes by using the online catalogue. The opener needs a logical human user; the book did not use the catalogue. Accept other accurate natural versions.",
+      "rubric": ["Makes the user of the catalogue explicit", "Retains meaning and explains the attachment issue"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-G-MOD-01", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 180
+    },
+    {
+      "item_id": "CET4-T-INFO-01",
+      "domain": "translation",
+      "focus": "information-and-time-reference",
+      "demand": "produce",
+      "stem": "Translate into English: 这家社区图书馆去年开始在周末开放。居民可以免费借书，但必须在两周内归还。志愿者还帮助老年人使用电子阅读设备。\nThis is a short information-preservation drill, not a full CET-4 translation section.",
+      "key": "One possible version: This community library began opening at weekends last year. Residents can borrow books free of charge, but must return them within two weeks. Volunteers also help older people use electronic reading devices. Accept equivalent natural wording; preserve start time, weekend availability, no fee, return deadline, and who helps whom.",
+      "rubric": ["Preserves all five meaning units", "Distinguishes the past start from current borrowing rules", "Natural comprehensible English; no unique wording requirement"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-T-INFO-01", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 300
+    },
+    {
+      "item_id": "CET4-W-RESPONSE-01",
+      "domain": "writing",
+      "focus": "specific-support-and-task-fulfilment",
+      "demand": "produce",
+      "stem": "Your university is considering offering a weekly workshop where students repair small household items with trained volunteers. Write an essay expressing your view and explaining how such a workshop could be made useful for students. Write 120–180 words in 30 minutes. This is an original CET-4-style task, not a past examination question.",
+      "key": "Open response: a clear relevant position plus developed reasons and at least one practical proposal suited to students. Any defensible position is acceptable. Judge task completion, support, coherence and language with the public 15-point raw writing bands; do not require a fixed template or particular vocabulary.",
+      "rubric": ["Addresses both the proposal and how to make it useful", "Supports ideas with relevant explanation/examples", "Coherent organization and sufficiently accurate language", "Follows word and time instructions"],
+      "source": {"kind": "original", "locator": "starter-items.json:CET4-W-RESPONSE-01", "answer_status": "tutor_checked"},
+      "time_limit_seconds": 1800
+    }
+  ]
+}

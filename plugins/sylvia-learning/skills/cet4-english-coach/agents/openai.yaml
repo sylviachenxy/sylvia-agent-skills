@@ -1,0 +1,4 @@
+interface:
+  display_name: "大学英语四级综合教练"
+  short_description: "四级笔试高分与口语优秀训练，循证诊断、迁移复测并持久保存学情"
+  default_prompt: "用 $cet4-english-coach 恢复我的四级学情，确认今天的时间，并开始一项最值得练习的任务。"

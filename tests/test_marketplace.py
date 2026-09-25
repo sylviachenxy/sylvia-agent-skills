@@ -52,7 +52,7 @@ class DistributionTests(unittest.TestCase):
         result = validate(ROOT)
         groups = {p["name"]: {s["name"] for s in p["skills"]} for p in result["plugins"]}
         self.assertEqual(groups, {
-            "sylvia-learning": {"deep-reading-coach", "cet4-speaking-partner", "ielts-speaking-coach",
+            "sylvia-learning": {"deep-reading-coach", "cet4-english-coach", "ielts-speaking-coach",
                                 "shanghai-gaokao-english-tutor"},
             "sylvia-productivity": {"goal-planner", "personal-scheduler", "weekly-review", "morning-brief"}})
 

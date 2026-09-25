@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-25",
+  "scope": "Source and structural inventory; not a calibrated item bank",
+  "complete_cold_written_accepted_count": 0,
+  "downloaded_recent_question_papers": 4,
+  "copyright": "Source links and metadata only. No third-party papers, keys or audio are bundled.",
+  "materials": [
+    {
+      "material_id": "neea-syllabus-2016",
+      "title": "全国大学英语四、六级考试大纲（2016年修订版）",
+      "kind": "official_sample",
+      "url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+      "pages": 215,
+      "sha256": "9166d3c03b7bc43abd9d9df91bd2ef8085b4419286f1e5ca100dea68f3cfd1f1",
+      "review": "结构、评分描述与样卷定位已核读；印刷p197/PDF202、p203/PDF208已视觉核查",
+      "use": "标准与判档锚点；公开样题需确认未曝光；未验收完整配套听力",
+      "cold_written_ready": false
+    },
+    {
+      "material_id": "cet4-2023-12-set1-mirror",
+      "title": "2023年12月CET4第1套（镜像题面）",
+      "kind": "publisher_reconstruction",
+      "url": "https://catteacher0515.github.io/cet4-download/papers/2023/12/cet4-2023-12-set-01.pdf",
+      "pages": 8,
+      "sha256": "0cf6e9150e14ac238e890054aa305cf486e6afe658f93b40e89f6c94f5b63949",
+      "review": "四大块与客观题编号结构检查；非官方镜像",
+      "issues": ["答案未逐题核验", "听力音频未验收", "正式使用前需逐页视觉复核"],
+      "cold_written_ready": false
+    },
+    {
+      "material_id": "cet4-2024-12-set1-mirror",
+      "title": "2024年12月CET4第1套（镜像题面）",
+      "kind": "publisher_reconstruction",
+      "url": "https://catteacher0515.github.io/cet4-download/papers/2024/12/cet4-2024-12-set-01.pdf",
+      "pages": 8,
+      "sha256": "259f1fbff1ef9af56df4f26f27d723e372af7a1a14ac2c0ccdd37166e8b91616",
+      "review": "四大块与客观题编号结构检查；非官方镜像",
+      "issues": ["答案未逐题核验", "听力音频未验收", "正式使用前需逐页视觉复核"],
+      "cold_written_ready": false
+    },
+    {
+      "material_id": "cet4-2025-06-set1-koolearn",
+      "title": "2025年6月CET4第1套（新东方在线题面）",
+      "kind": "publisher_reconstruction",
+      "source_page": "https://cet4.koolearn.com/20250903/926935.html",
+      "url": "https://guonei-cos.koocdn.com/common/d02cbf90d6b74220882349f7d4a29a92.pdf",
+      "pages": 9,
+      "sha256": "c09773d3a85a6ef485cd60c89d0b719a54e7320d0454f64a505f4092fa84cf67",
+      "review": "四大块和题型检查，首面视觉核对；题面完整不等于答案核验",
+      "issues": ["不含已核验答案", "听力音频未验收", "文本层有OCR问题，例如corn识别成com，须回到图面"],
+      "cold_written_ready": false
+    },
+    {
+      "material_id": "cet4-2025-12-set1-mirror",
+      "title": "2025年12月CET4第1套（镜像题面）",
+      "kind": "publisher_reconstruction",
+      "url": "https://catteacher0515.github.io/cet4-download/papers/2025/12/cet4-2025-12-set-01.pdf",
+      "pages": 8,
+      "sha256": "2ea26dc392ec7913b28bc0991016ea8afd8feb444de1d21b3471195b74d48846",
+      "review": "四大块与客观题编号结构检查；非官方镜像",
+      "issues": ["答案未逐题核验", "听力音频未验收", "正式使用前需逐页视觉复核"],
+      "cold_written_ready": false
+    }
+  ]
+}

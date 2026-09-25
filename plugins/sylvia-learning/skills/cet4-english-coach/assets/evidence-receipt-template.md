@@ -2,7 +2,7 @@
 schema_version: 1
 type: cet4-speaking-evidence
 receipt_id: "CET4S-YYYYMMDD-HHMMSS"
-source_skill: cet4-speaking-partner
+source_skill: cet4-english-coach
 created_at: "YYYY-MM-DDTHH:MM:SS±HH:MM"
 session_mode: baseline_diagnostic
 target_standard: "CET-SET4 优秀"
@@ -10,7 +10,7 @@ target_standard: "CET-SET4 优秀"
 
 # CET-SET4 speaking evidence receipt
 
-> 若已有稳定 `goal_id` 或 `action_id`，在 frontmatter 中加入原值；没有时省略字段，不得生成临时值。用户指定保存位置后，复制本模板到 skill 仓库外再填写；没有指定位置时只在当前对话输出，不落盘。不要修改模板本身。
+> 若已有稳定 `goal_id` 或 `action_id`，加入原值；没有时省略，不生成临时值。完成持续学情 setup 后，保存到选定档案的 `Sessions/<receipt_id>.md` 并用 `oral-record` 登记证据索引；未授权保存则仅在对话输出。不要修改模板本身或默认保存录音。
 
 ## 协议依据
 
@@ -88,7 +88,7 @@ Alignment 只能引用满足准入条件的 Evidence ID；`text_only`、同题�
 `demonstrated_once` 必须引用完整 strict mock；`human_partner_observed` 必须引用严格计时且 speaker attribution 为 `reliable` 的真人证据。否则降级，不因自报提升 Stability。
 
 - Alignment：`demonstrated_once / partial / not_demonstrated / indeterminate`
-- Stability：`single_observation / repeated_ai_consistent / human_partner_observed`
+- Stability：`insufficient / single_observation / repeated_ai_consistent / human_partner_observed`
 - Baseline candidate：`yes / limited / no`
 - 最可靠优势（最多 2 项）：
 - 最高优先级缺口（最多 2 项）：

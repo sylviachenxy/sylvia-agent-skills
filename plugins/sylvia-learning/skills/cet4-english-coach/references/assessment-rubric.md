@@ -139,11 +139,14 @@
 
 ### Stability
 
+- `insufficient`：没有合格语音证据、证据已超出当前复核窗，或近期反证需要重新取证；纯文字使用此值，不得写 single_observation。
 - `single_observation`：仅一场独立证据；
 - `repeated_ai_consistent`：至少两套不同日期的完整 strict mock、多个未见话题和至少两种 AI 画像中反复出现；
 - `human_partner_observed`：在前述基础上，严格计时的真人陌生搭档任务也出现相符证据，且每个话轮能可靠归属说话人。
 
 不要把 `same_task_retry` 用于提升 Stability。一次表现可以是很好的起点，但不能叫“已经稳定”。
+
+本综合教练的持久索引采用最近30天复核窗，并在完整严格模拟出现反证后重置稳定结论；这是内部训练规则，不是官方成绩有效期。仍保留较旧原始证据供纵向复盘，不能删除失败记录换取通过。
 
 普通真人搭档不是评分员。只有 Codex 实际听到实时会话或原始录音，并能通过可区分声线或明确 speaker labels 可靠归属话轮，才可使用 `human_partner_observed`；否则相关个人维度标 `INDETERMINATE`。单纯用户 / 搭档自报标为 `human_partner_self_report`，不提升 Stability。第三方结构化观察只能按其具体证据与方法说明，不得写成 rater-calibrated。
 

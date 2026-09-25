@@ -1,5 +1,15 @@
 # 变更记录
 
+## 2026-09-25 — 四级综合教练（sylvia-learning 0.2.0）
+
+- `sylvia-learning 0.1.0 → 0.2.0`，**BREAKING**：新建`cet4-english-coach`，按维护者明确要求直接移除`cet4-speaking-partner`活动入口，不保留兼容别名；口语协议、rubric与回执并入综合教练。0.x不兼容能力移除按minor升版，个人效率包仍为0.1.0。
+- 增加CET4听力、三类阅读、写作、翻译、词句专项；官方710报道分与原始练习、口试等级分离。支持材料准入、现场／历史基线、分项假设、可追溯更正、分级帮助、独立迁移和跨日复测，不提供伪分数预测。
+- 增加统一Obsidian配置／学情、本机profile定位、不可变题目与曝光、原子读回和可读Practice.md；口语能力索引保留语音／计时／搭档限制，并可用`assessment-show`读回。脚本不访问账号、录音、Goal写入或Apple工具。
+- 随附6项原创微题、官方依据／评分锚点定位、4份近年题卷的结构检查目录与缺口。**完整笔试冷测材料验收数仍为0**：网上题卷的完整答案与配套音频尚未逐项验收，不把下载数当可用基线数；原始PDF／OCR／渲染件仍在本地ignored research，不构成安装依赖。
+- 同步根／学习包README、manifest默认入口和分发预期集合；退役依据、固定历史SHA、用户数据边界见`docs/lifecycle/skill-cet4-speaking-partner.md`。原回执不被篡改或自动升级为新教练亲历证据；已安装旧副本不会被自动卸载。
+- 本地验证：95项四级skill离线测试、24项分发回归通过；两个独立行为前测覆盖真实请求和临时Vault CLI流程。隔离原生安装验证两个包和8个技能的真实发现／完整文件内容；全包回归及最终工具版本见新skill的验证记录。
+- 本条随经维护者授权的[PR #2](https://github.com/sylviachenxy/sylvia-agent-skills/pull/2)合入main生效；合并SHA和合并后的GitHub来源隔离安装验收见该PR记录。未安装到正式profile、创建tag／GitHub Release或修改许可证。真实Voice／真人搭档／教学效果尚未UAT。
+
 ## 2026-09-24 — 首次 marketplace 分发
 
 ### 生命周期与 SemVer 规范

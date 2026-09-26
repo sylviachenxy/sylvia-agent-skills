@@ -38,6 +38,8 @@ gh skill publish --dry-run
 
 `validate_marketplace.py` 仅验证本仓库约定的 JSON／路径／分组／版本 authority／基本技能发现子集，不是完整 YAML 或通用 plugin schema 校验器。结构回归覆盖重名、漏注册、越界、重复版本、空包、symlink 和资源／执行权限变化等失败情况。
 
+本地 Finder 生成的普通 `.DS_Store` 文件不作为 skill 发现，且已由 `.gitignore` 排除出干净分发快照；这个例外不包括符号链接、同名目录或其他未知文件。根 `skills/` 仍是硬错误：未发布的独立源码应保存在仓库外，不能藏在另一个可扫描目录里或混入无关发布。
+
 可用时还应运行当前 Plugin Creator 自带的 `scripts/validate_plugin.py` 检查两个 plugin，以及 Skill Creator 的 `quick_validate.py`／官方 `skills-ref validate` 检查变动 skill。按实际安装位置解析工具；不要把维护机上的路径写进用户技能，也不要静默安装缺失工具。
 
 ### 隔离原生安装验收
@@ -53,8 +55,8 @@ python3 scripts/smoke_marketplace.py --codex /absolute/path/to/verified/codex --
 1. 从 Git 跟踪文件与未忽略的新文件制作干净快照，保留执行权限，不复制忽略的开发产物；也支持尚未暂存的目录迁移。
 2. 仅对子进程设置临时 Codex 配置目录，添加本地 marketplace 并安装两个 plugin；不改当前用户 profile，不复制登录凭据，不建立任务或调用模型。
 3. 核对版本、启用状态、**安装后的完整文件集合、逐文件 SHA-256 与执行权限**；空壳安装必须失败。
-4. 通过只读 app-server `skills/list`，确认 8 个 skill 真正从临时安装缓存加载，而不是从源码、旧独立安装或当前工作目录碰巧被找到。
-5. 用 `gh skill install --from-local` 按名称逐个安装 8 个 skill 到另一临时目录，核对资源；仅允许 `gh` 注入自己的 frontmatter 来源元数据及边界空行规范化。`gh 2.98.0` 本地安装实测丢失部分脚本执行位，因此额外报告 `gh_executable_mode_warnings`，不将独立安装的内容完整性表述为运行通过。原生 plugin 安装的执行权限变化仍是硬失败。
+4. 通过只读 app-server `skills/list`，确认当前 catalog 的全部 skill 真正从临时安装缓存加载，而不是从源码、旧独立安装或当前工作目录碰巧被找到。
+5. 用 `gh skill install --from-local` 按名称逐个安装当前 catalog 中的全部 skill 到另一临时目录，核对资源；仅允许 `gh` 注入自己的 frontmatter 来源元数据及边界空行规范化。`gh 2.98.0` 本地安装实测丢失部分脚本执行位，因此额外报告 `gh_executable_mode_warnings`，不将独立安装的内容完整性表述为运行通过。原生 plugin 安装的执行权限变化仍是硬失败。
 6. 带 `--test-skills` 时，从安装包运行各既有离线测试套件（合成资料／mock，不读取用户 Apple 或学习数据）。两份独立断言脚本按其 main 入口执行，不把 unittest 的零测试结果记为通过。所有临时安装在退出时清理。
 
 这覆盖本地 catalog → native install → runtime discovery 和独立安装。**不证明** GitHub 远端已有这些文件、桌面 UI 所有版本均兼容、真实 Voice／Apple 权限／iCloud／iPhone 链路正常或教学效果达标。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "课堂笔记整理"
+  short_description: "智能归课、规范新旧笔记与目录，生成课堂笔记并维护素材处理日志"
+  default_prompt: "请使用 $class-notes 整理课堂目录：结合课表、时间与内容归课，规范目录及旧笔记命名，独立验收课堂内容，更新各课素材目录的 log.md，明确完成、已开始未完成和未开始。"

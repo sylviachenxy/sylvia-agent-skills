@@ -118,6 +118,10 @@ def validate(root):
         require(name in root_readme, f"missing README plugin entry: {name}")
         skills = []
         for skill in sorted((plugin / "skills").iterdir()):
+            # Finder may recreate this ignored metadata in a local checkout.
+            # Only this regular file is exempt; unknown entries still fail.
+            if skill.name == ".DS_Store" and skill.is_file():
+                continue
             require(skill.is_dir(), f"unexpected file in skills/: {skill}")
             identifier(skill.name)
             require(skill.name not in skill_names, f"duplicate skill: {skill.name}")

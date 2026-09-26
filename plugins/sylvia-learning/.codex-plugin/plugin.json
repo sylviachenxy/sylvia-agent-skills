@@ -1,7 +1,7 @@
 {
   "name": "sylvia-learning",
-  "version": "0.2.0",
-  "description": "学习辅导工具集：深度阅读、CET-4 综合教练、雅思口语 8+ 与上海高考英语一对一教学。",
+  "version": "0.3.0",
+  "description": "学习工具集：两档课堂笔记与英语完整听写、深度阅读、CET-4 综合教练、雅思口语 8+ 与上海高考英语一对一教学。",
   "author": {
     "name": "Sylvia",
     "url": "https://github.com/sylviachenxy"
@@ -11,14 +11,14 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Sylvia 学习辅导",
-    "shortDescription": "深度阅读与英语专项一对一辅导",
-    "longDescription": "包含深度阅读、CET-4 笔试与口试综合教练、雅思口语和上海高考英语四个独立 skill。以真实表现、分级提示、迁移复测与学习证据为核心；长期学情保存在用户选择的 Obsidian Vault。计划与日程联动可另装 Sylvia 个人效率。",
+    "shortDescription": "课堂笔记、深度阅读与英语专项辅导",
+    "longDescription": "包含课堂笔记、深度阅读、CET-4 综合教练、雅思口语和上海高考英语五个独立 skill。课堂笔记使用固定 A／B 模板与独立课程配置，英语录音另交完整听写；教学以真实表现、分级提示和迁移复测为核心。个人资料保存在用户选择的位置，计划与日程可另配 Sylvia 个人效率。",
     "developerName": "Sylvia",
     "category": "Education",
     "capabilities": [],
     "defaultPrompt": [
+      "用 $class-notes 按适用档次和固定模板整理本次课堂资料；英语课另交完整原语言听写稿。",
       "用 $cet4-english-coach 开始四级笔试高分与口语优秀训练。",
-      "用 $ielts-speaking-coach 开始一次以雅思口语 8+ 为目标的训练。",
       "用 $shanghai-gaokao-english-tutor 评估我离上海英语高考 140 分的差距。"
     ]
   }

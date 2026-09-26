@@ -31,6 +31,8 @@ class DistributionTests(unittest.TestCase):
             shutil.copy2(source / "LICENSE", plugin / "LICENSE")
             shutil.copy2(source / "README.md", plugin / "README.md")
             for skill in (source / "skills").iterdir():
+                if skill.name == ".DS_Store" and skill.is_file():
+                    continue
                 target = plugin / "skills" / skill.name
                 target.mkdir(parents=True)
                 (target / "SKILL.md").write_text(
@@ -52,12 +54,26 @@ class DistributionTests(unittest.TestCase):
         result = validate(ROOT)
         groups = {p["name"]: {s["name"] for s in p["skills"]} for p in result["plugins"]}
         self.assertEqual(groups, {
-            "sylvia-learning": {"deep-reading-coach", "cet4-english-coach", "ielts-speaking-coach",
+            "sylvia-learning": {"class-notes", "deep-reading-coach", "cet4-english-coach", "ielts-speaking-coach",
                                 "shanghai-gaokao-english-tutor"},
             "sylvia-productivity": {"goal-planner", "personal-scheduler", "weekly-review", "morning-brief"}})
 
     def test_valid_fixture(self):
-        self.assertEqual(validate(self.root)["skill_count"], 8)
+        self.assertEqual(validate(self.root)["skill_count"], 9)
+
+    def test_finder_metadata_is_not_discovered_as_a_skill(self):
+        for name in ("sylvia-learning", "sylvia-productivity"):
+            metadata = self.root / "plugins" / name / "skills/.DS_Store"
+            metadata.write_bytes(b"synthetic Finder metadata")
+        self.assertEqual(validate(self.root)["skill_count"], 9)
+
+    def test_unknown_file_in_skill_directory_still_fails(self):
+        (self.plugin / "skills/unknown.txt").write_text("not a skill")
+        self.invalid("unexpected file in skills/")
+
+    def test_legacy_root_directory_is_still_rejected(self):
+        (self.root / "skills").mkdir()
+        self.invalid("legacy root skills/")
 
     def test_duplicate_plugin_fails(self):
         self.catalog["plugins"].append(self.catalog["plugins"][0])

@@ -1,0 +1,22 @@
+# 仅供用户明确要求建立配置时使用；不覆盖既有配置。
+schema_version = 1
+
+[defaults]
+fallback_tier = "A"
+note_language = "zh-CN"
+delivery = "task-artifacts"
+review_answers = "collapsed"
+
+# 用户确认统一课堂目录时，在包外配置中添加 [storage]：
+# class_root = 实际课堂根目录；并把上面的 delivery 改为 course-directory。
+# materials_subdir = "笔记素材"
+# notes_subdir = "正式课堂笔记"
+# archive_materials = true
+# batch_selection = "all-pending"
+# 无真实路径的空模板不自动启用扫描或移动。
+
+# 有课表时可另加 [matching]：schedule_dir 为相对课堂根的真实目录，
+# timezone 为用户确认的 IANA 时区；教学第 1 周起始日期未知就不填写。
+
+# 每门课的分档、教材、考核和目录可以稍后配置。
+[courses]

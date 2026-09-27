@@ -20,6 +20,10 @@ EXTENSIONS = {
     ".m4a", ".mp3", ".wav", ".aac", ".flac", ".ogg", ".opus", ".aiff",
     ".mp4", ".mov", ".webm", ".jpg", ".jpeg", ".png", ".heic", ".webp",
 }
+USER_NOTE_EXTENSIONS = {
+    ".md", ".txt", ".pdf", ".ppt", ".pptx", ".doc", ".docx", ".rtf", ".epub",
+    ".jpg", ".jpeg", ".png", ".heic", ".webp",
+}
 PRIORITY = {"needs_update": 0, "needs_repair": 1, "blocked": 2,
             "partial": 3, "needs_archiving": 4, "complete": 5}
 LOG_MARKER = "<!-- class-notes:course-log v1 -->"
@@ -62,6 +66,16 @@ def relative(value):
     if path.is_absolute() or ".." in path.parts or path == PurePosixPath("."):
         raise ValueError("Record path escapes the classroom root")
     return path
+
+
+def is_user_note(record):
+    # Authorship is confirmed by the agent/user, never inferred from a filename.
+    return (record.get("role") == "user_notes"
+            and relative(record["path"]).suffix.lower() in USER_NOTE_EXTENSIONS)
+
+
+def source_folder(source, layout):
+    return layout["notes"] if is_user_note(source) else layout["materials"]
 
 
 def scoped_path(root, name):
@@ -251,7 +265,7 @@ def classify(name, fingerprint, ledger, layout):
         elif not outputs_valid(lesson, layout) or not all(source_present(s, layout) for s in lesson["materials"]):
             state = "needs_repair"
         elif layout["archive"] and (lesson["archive_status"] != "complete"
-                or relative(name).parts[:2] != (lesson["course_folder"], layout["materials"])):
+                or relative(name).parts[:2] != (lesson["course_folder"], source_folder(source, layout))):
             state = "needs_archiving"
         else:
             state = "complete"

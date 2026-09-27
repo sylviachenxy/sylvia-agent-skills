@@ -1,6 +1,6 @@
 {
   "name": "sylvia-learning",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "学习工具集：两档课堂笔记与英语完整听写、深度阅读、CET-4 综合教练、雅思口语 8+ 与上海高考英语一对一教学。",
   "author": {
     "name": "Sylvia",
@@ -12,7 +12,7 @@
   "interface": {
     "displayName": "Sylvia 学习辅导",
     "shortDescription": "课堂笔记、深度阅读与英语专项辅导",
-    "longDescription": "包含课堂笔记、深度阅读、CET-4 综合教练、雅思口语和上海高考英语五个独立 skill。课堂笔记使用固定 A／B 模板与独立课程配置，英语录音另交完整听写；教学以真实表现、分级提示和迁移复测为核心。个人资料保存在用户选择的位置，计划与日程可另配 Sylvia 个人效率。",
+    "longDescription": "包含课堂笔记、深度阅读、CET-4 综合教练、雅思口语和上海高考英语五个独立 skill。课堂笔记先定单元归属，再按固定 A／B 模板整理，英语录音另交完整听写；用户自写笔记保留在正式目录，归位与内容完成分开记录。教学以真实表现、分级提示和迁移复测为核心。个人资料保存在用户选择的位置，计划与日程可另配 Sylvia 个人效率。",
     "developerName": "Sylvia",
     "category": "Education",
     "capabilities": [],

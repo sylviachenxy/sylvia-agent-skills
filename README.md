@@ -17,7 +17,7 @@ Marketplace：`sylvia-agent-skills`。添加 marketplace 只是添加目录，�
 
 | Skill | 功能 |
 | --- | --- |
-| [`class-notes`](plugins/sylvia-learning/skills/class-notes/) | 按 A／B 模板整理单课或批量待办，英语录音另交完整原语言听写；规范新旧笔记与课程目录，用 log.md 区分内容完成和素材归位，支持教材增补与订正，目录和课程分档独立配置。 |
+| [`class-notes`](plugins/sylvia-learning/skills/class-notes/) | 先定单元归属，再按 A／B 模板整理知识点、例句与练习，归属不明标待核；英语录音另交完整原语言听写。用户自写笔记归正式目录；规范新旧笔记与课程目录，用 log.md 区分内容完成和文件归位，支持教材增补与订正，课程分档独立配置。 |
 | [`deep-reading-coach`](plugins/sylvia-learning/skills/deep-reading-coach/) | 培养可迁移的精读能力、独立阅读流程与可持续阅读习惯。 |
 | [`cet4-english-coach`](plugins/sylvia-learning/skills/cet4-english-coach/) | CET-4 笔试与 CET-SET4 口语综合教学，基线诊断、分项证据、高分目标分析、迁移复测与 Obsidian 学情；不将正确率转换为710报道分。含来源／材料验收目录，不附网上整卷或音频。 |
 | [`ielts-speaking-coach`](plugins/sylvia-learning/skills/ielts-speaking-coach/) | 以雅思口语 8+ 为目标，进行日常专项训练、无提示模考、间隔迁移复测，在 Obsidian 持久管理偏好与证据，并衔接目标、日程和周复盘。 |

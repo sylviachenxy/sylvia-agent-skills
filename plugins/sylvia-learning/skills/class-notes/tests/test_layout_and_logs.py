@@ -78,11 +78,74 @@ class LayoutLogTests(unittest.TestCase):
     def test_audio_and_registered_raw_markdown_in_formal_are_flagged(self):
         lesson = self.lesson()
         self.file("示例课程/正式课堂笔记/原音频.m4a")
-        path = self.file("示例课程/正式课堂笔记/原手记.md")
+        path = self.file("示例课程/正式课堂笔记/粗ASR.md")
         lesson["materials"].append({"path": path.relative_to(self.root).as_posix(),
                                     "sha256": scanner.digest(path)[0], "coverage": "full"})
         self.save()
         self.assertEqual(sum(i["reason"] == "source_in_formal_notes" for i in auditor.audit(self.layout)["issues"]), 2)
+
+    def test_user_written_sources_remain_formal_without_template_or_verification(self):
+        lesson = self.lesson()
+        for suffix in (".md", ".pdf", ".png"):
+            path = self.file(f"示例课程/正式课堂笔记/我的提纲{suffix}", b"brief personal note")
+            lesson["materials"].append({"path": path.relative_to(self.root).as_posix(),
+                                        "role": "user_notes", "sha256": scanner.digest(path)[0],
+                                        "coverage": "full"})
+        self.save()
+        text = logs.build_logs(self.layout, write=True)["logs"][0]["content"]
+        self.assertTrue(auditor.audit(self.layout)["layout_pass"])
+        self.assertIn("素材归位：complete", text)
+        self.assertIn("用户自写正式笔记；覆盖：full", text)
+        for source in lesson["materials"][1:]:
+            self.assertEqual((self.root / source["path"]).read_bytes(), b"brief personal note")
+
+    def test_user_notes_in_materials_need_relocation_not_completion(self):
+        lesson = self.lesson()
+        path = self.file("示例课程/笔记素材/我的词表.md")
+        lesson["materials"].append({"path": path.relative_to(self.root).as_posix(),
+                                    "role": "user_notes", "sha256": scanner.digest(path)[0],
+                                    "coverage": "full"})
+        self.save()
+        self.assertIn("user_notes_in_materials", self.reasons())
+        self.assertIn("素材归位：尚未通过", logs.build_logs(self.layout)["logs"][0]["content"])
+
+    def test_independent_user_notes_do_not_invent_a_lesson(self):
+        path = self.file("词表课/正式课堂笔记/我的词表.md", b"personal vocabulary")
+        (self.root / "词表课/笔记素材").mkdir()
+        self.ledger["references"].append({"path": path.relative_to(self.root).as_posix(),
+                                         "role": "user_notes", "sha256": scanner.digest(path)[0],
+                                         "course_folder": "词表课", "reason": "用户自写词表"})
+        self.save()
+        text = logs.build_logs(self.layout, write=True)["logs"][0]["content"]
+        self.assertTrue(auditor.audit(self.layout)["layout_pass"])
+        self.assertIn("## 用户自写正式笔记", text)
+        self.assertIn("尚无已登记课次", text)
+        self.assertIn("暂无单独登记的参考／占位资料", text)
+        self.assertEqual(scanner.load_ledger(self.root)["lessons"], [])
+
+    def test_user_note_output_does_not_imply_agent_started_or_finished(self):
+        lesson = self.lesson()
+        path = self.file("示例课程/正式课堂笔记/我的提纲.md", b"unfinished personal note")
+        personal = {"path": path.relative_to(self.root).as_posix(), "role": "user_notes", "verified": False}
+        lesson.update(status="draft", processing_started=False, outputs=[personal])
+        self.assertEqual(logs.content_status(lesson, self.layout)[0], "pending")
+        lesson.pop("processing_started")
+        self.assertEqual(logs.content_status(lesson, self.layout)[0], "待核定")
+        lesson["outputs"].append({"path": personal["path"], "role": "notes", "verified": False})
+        self.assertEqual(logs.content_status(lesson, self.layout)[0], "待核定")
+        personal["verified"] = True
+        lesson["status"] = "complete"
+        self.assertFalse(scanner.outputs_valid(lesson, self.layout))
+        self.assertEqual(logs.content_status(lesson, self.layout)[0], "incomplete")
+
+    def test_user_note_role_cannot_reclassify_audio_as_a_written_note(self):
+        lesson = self.lesson()
+        path = self.file("示例课程/正式课堂笔记/录音.m4a")
+        lesson["materials"].append({"path": path.relative_to(self.root).as_posix(),
+                                    "role": "user_notes", "sha256": scanner.digest(path)[0],
+                                    "coverage": "full"})
+        self.save()
+        self.assertIn("source_in_formal_notes", self.reasons())
 
     def test_unknown_formal_markdown_requires_role_review(self):
         self.lesson()

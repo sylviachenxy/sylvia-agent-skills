@@ -10,7 +10,7 @@ from pathlib import Path
 import sys
 
 sys.dont_write_bytecode = True
-from scan_materials import (component, known_courses, load_layout, load_ledger,
+from scan_materials import (component, is_user_note, known_courses, load_layout, load_ledger,
                             managed_log, relative, scoped_path)
 
 
@@ -21,6 +21,9 @@ def audit(layout, courses=()):
     issues, outputs, expected = [], {}, {}
     sources = {item["path"] for lesson in ledger["lessons"] for item in lesson["materials"]}
     sources.update(item["path"] for item in ledger.get("references", []))
+    user_notes = {item["path"] for lesson in ledger["lessons"]
+                  for item in lesson["materials"] + lesson["outputs"] if is_user_note(item)}
+    user_notes.update(item["path"] for item in ledger.get("references", []) if is_user_note(item))
 
     def issue(path, reason, **details):
         issues.append({"path": path, "reason": reason, **details})
@@ -103,10 +106,14 @@ def audit(layout, courses=()):
             if len(parts) < 3 or parts[0] not in courses or parts[1] not in {layout["materials"], layout["notes"]}:
                 issue(name, "outside_standard_directories")
             elif parts[1] == layout["notes"]:
+                if name in user_notes:
+                    continue
                 if name in sources or path.suffix.lower() != ".md":
                     issue(name, "source_in_formal_notes")
                 elif name not in outputs:
                     issue(name, "unregistered_formal_file_review_role")
+            elif name in user_notes:
+                issue(name, "user_notes_in_materials")
             elif name in outputs:
                 issue(name, "output_in_materials")
     return {"read_only": True, "courses": courses, "issues": issues,

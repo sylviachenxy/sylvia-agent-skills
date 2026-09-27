@@ -184,6 +184,18 @@ class ScanTests(unittest.TestCase):
         self.save_ledger()
         self.assertEqual(list(self.states().values()), ["needs_archiving"])
 
+    def test_user_written_source_is_archived_in_formal_not_materials(self):
+        entry = self.lesson(source="课程甲/正式课堂笔记/我的提纲.md")
+        source = entry["materials"][0]
+        source["role"] = "user_notes"
+        self.save_ledger()
+        loaded = scanner.load_ledger(self.layout["root"])
+        self.assertEqual(scanner.classify(source["path"], source["sha256"], loaded, self.layout)[0], "complete")
+        source["path"] = "课程甲/笔记素材/我的提纲.md"
+        self.file(source["path"])
+        self.save_ledger()
+        self.assertEqual(self.states()[source["path"]], "needs_archiving")
+
     def test_disabled_archiving_never_demands_a_move(self):
         self.lesson(source="录音.m4a")
         self.layout["archive"] = False

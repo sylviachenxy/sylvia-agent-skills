@@ -66,13 +66,13 @@ review_answers = "collapsed"
 | --- | --- |
 | `storage.class_root` | 用户确认的课堂总目录；省略时不自动全盘寻找素材。 |
 | `storage.materials_subdir` | 每门课的素材子目录名，默认 `笔记素材`。 |
-| `storage.notes_subdir` | 每门课的正式产物子目录名，默认 `正式课堂笔记`。 |
+| `storage.notes_subdir` | 每门课的正式笔记子目录名，包含用户自写笔记与整理产物，默认 `正式课堂笔记`。 |
 | `storage.archive_materials` | 默认 `false`；明确启用统一归档时设为 `true`。在已授权整理中，归属确定即可归位，独立保留内容待办；不是定时监控，不因仅修改技能就移动资料。 |
 | `storage.batch_selection` | 当前支持 `all-pending`：日常批量请求处理全部未完成素材，不拿修改时间当授课日期。用户当次明确的日期限制优先。 |
 
 两个子目录名必须不同、非隐藏且为单个目录名，不能含父路径跳转。内部处理记录固定放在 `<class_root>/.class-notes/processing.json`，首次真正整理时建立，不打包、不当素材扫描。课程分档可继续为空。
 
-启用后，默认路径分别为 `<class_root>/<course-folder>/<notes_subdir>/` 和 `<class_root>/<course-folder>/<materials_subdir>/`。全目录规范化覆盖所有已确认课程，不要求已有可成稿课次。完整听写稿是正式产物；原录音、粗 ASR、课件、随堂原稿和考核说明属于素材。每课素材目录有管理用 `log.md`，从统一处理记录生成，不作为第二份课程配置。配置中已有 `notes_dir` 若与这套规则冲突，先核对现有明确约定，不悄悄改写。
+启用后，默认路径分别为 `<class_root>/<course-folder>/<notes_subdir>/` 和 `<class_root>/<course-folder>/<materials_subdir>/`。全目录规范化覆盖所有已确认课程，不要求已有可成稿课次。用户自写笔记（含随堂记录、提纲和词表）与完整听写稿属于正式笔记；原录音、粗 ASR、课件和外部考核通知属于素材。不因自写笔记简略或未套模板改其归类，也不因其存在就认定整课完成。这是通用规则，无需逐课另开开关。每课素材目录有管理用 `log.md`，从统一处理记录生成，不作为第二份课程配置。配置中已有 `notes_dir` 若与这套规则冲突，先核对现有明确约定，不悄悄改写。
 
 扫描器使用标准库和 Python 3.11+，`--config` 指定配置、`--root` 可临时指定本次已授权根目录；后者只影响只读扫描，不持久改配置。旧 schema 1 的无目录配置仍有效，只是不能无目标地运行批量扫描。
 

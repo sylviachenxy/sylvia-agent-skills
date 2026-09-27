@@ -12,9 +12,9 @@ import tempfile
 from urllib.parse import quote
 
 sys.dont_write_bytecode = True
-from scan_materials import (LOG_END, LOG_MARKER, LOG_START, digest, known_courses,
+from scan_materials import (LOG_END, LOG_MARKER, LOG_START, digest, is_user_note, known_courses,
                             load_layout, load_ledger, managed_log, outputs_valid,
-                            relative, scan, scoped_path)
+                            relative, scan, scoped_path, source_folder)
 
 
 def plain(value):
@@ -57,7 +57,9 @@ def content_status(lesson, layout):
         return ("incomplete", problems) if problems else ("complete", [])
     if lesson.get("processing_started") is False:
         return "pending", []
-    output_exists = any(scoped_path(layout["root"], output["path"]).is_file() for output in lesson["outputs"])
+    personal_paths = {item["path"] for item in lesson["materials"] + lesson["outputs"] if is_user_note(item)}
+    output_exists = any(output["path"] not in personal_paths and scoped_path(layout["root"], output["path"]).is_file()
+                        for output in lesson["outputs"])
     if (lesson["status"] in {"partial", "blocked"} or lesson.get("processing_started") is True
             or lesson.get("work_started_at") or output_exists):
         return "incomplete", integrity_issues(lesson, layout)
@@ -78,7 +80,7 @@ def render_course(course, layout, ledger, inventory):
     if not entries:
         lines.extend(["尚无已登记课次；以下参考／占位文件不自动算作待整理的一节课。", ""])
     for lesson, state, problems in entries:
-        placed = all(relative(item["path"]).parts[:2] == (course, layout["materials"])
+        placed = all(relative(item["path"]).parts[:2] == (course, source_folder(item, layout))
                      and scoped_path(layout["root"], item["path"]).is_file() for item in lesson["materials"])
         lines.extend([f"### {plain(lesson.get('lecture_date') or '日期待核定')} — {state}", "",
                       f"- 课次标识：`{plain(lesson['lesson_id'])}`",
@@ -111,12 +113,22 @@ def render_course(course, layout, ledger, inventory):
             lines.append("  - 尚无。")
         for output in lesson["outputs"]:
             lines.append("  - " + link(output["path"], log_dir) + f"（{plain(output['role'])}；{'已验收' if output['verified'] else '未验收'}）")
-        lines.append("- 素材：")
+        lines.append("- 本课依据（按角色分别存放）：")
         for source in lesson["materials"]:
-            lines.append("  - " + link(source["path"], log_dir) + f"（覆盖：{source['coverage']}）")
+            kind = "用户自写正式笔记" if is_user_note(source) else "素材"
+            lines.append("  - " + link(source["path"], log_dir) + f"（{kind}；覆盖：{source['coverage']}）")
         lines.append("")
     references = [item for item in ledger.get("references", [])
                   if item.get("course_folder") == course or relative(item["path"]).parts[0] == course]
+    personal = [item for item in references if is_user_note(item)]
+    if personal:
+        lines.extend(["## 用户自写正式笔记", "",
+                      "归档位置应为正式目录；列在这里不代表本轮课堂整理已经开始或完成。", ""])
+        for item in personal:
+            label = item.get("display_name") or relative(item["path"]).name
+            lines.append("- " + link(item["path"], log_dir, label) + "：" + plain(item["reason"]))
+        lines.append("")
+    references = [item for item in references if not is_user_note(item)]
     lines.extend(["## 参考资料／占位", ""])
     for item in references:
         label = item.get("display_name") or relative(item["path"]).name
